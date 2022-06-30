@@ -1,0 +1,29 @@
+{
+  "classes": {
+    "2022, 02, 22": [
+      {
+        "name": "yoga for beginners",
+        "time": "12:00",
+        "spots": 10
+      },
+      {
+        "name": "yoga for advanced",
+        "time": "14:00",
+        "spots": 10
+      }
+    ],
+    "2022, 02, 20": [
+      {
+        "name": "yoga for back pain",
+        "time": "10:00",
+        "spots": 10
+      },
+      {
+        "name": "yoga nidra",
+        "time": "21:00",
+        "spots": 10
+      }
+    ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/BookClassModal.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1656599358732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1656599358732,
+            "name": "Commit-0",
+            "content": "import { List, Modal } from \"antd\";\nimport dayjs from \"dayjs\";\n\nconst BookClassModal = ({ visible, classInfo }) => {\n  const date = dayjs(classInfo.date).format(\"DD/MM/YYYY\");\n  return (\n    <Modal visible={visible} onCancel={() => {}}>\n      <List>\n        <List.Item>Class: {classInfo.name}</List.Item>\n        <List.Item>Date: {date}</List.Item>\n        <List.Item>Time: {classInfo.time}</List.Item>\n        <List.Item>Free spots: {classInfo.spots}</List.Item>\n      </List>\n    </Modal>\n  );\n};\n\nexport default BookClassModal;\n"
+        }
+    ]
+}
