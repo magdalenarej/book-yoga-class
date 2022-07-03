@@ -3,11 +3,43 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 8,
             "patches": [
                 {
                     "date": 1656599358732,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1656836458912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { List, Modal } from \"antd\";\n import dayjs from \"dayjs\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n-  const date = dayjs(classInfo.date).format(\"DD/MM/YYYY\");\n+  const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n         <List.Item>Class: {classInfo.name}</List.Item>\n"
+                },
+                {
+                    "date": 1656836517950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,11 @@\n       <List>\n         <List.Item>Class: {classInfo.name}</List.Item>\n         <List.Item>Date: {date}</List.Item>\n         <List.Item>Time: {classInfo.time}</List.Item>\n-        <List.Item>Free spots: {classInfo.spots}</List.Item>\n+        <List.Item>\n+          Booked spots: {classInfo.spots.length}/{classInfo.spots}\n+        </List.Item>\n       </List>\n     </Modal>\n   );\n };\n"
+                },
+                {
+                    "date": 1656836546067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n         <List.Item>Class: {classInfo.name}</List.Item>\n         <List.Item>Date: {date}</List.Item>\n         <List.Item>Time: {classInfo.time}</List.Item>\n         <List.Item>\n-          Booked spots: {classInfo.spots.length}/{classInfo.spots}\n+          Booked spots: {classInfo.students.length}/{classInfo.spots}\n         </List.Item>\n       </List>\n     </Modal>\n   );\n"
+                },
+                {
+                    "date": 1656836560401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,9 @@\n       <List>\n         <List.Item>Class: {classInfo.name}</List.Item>\n         <List.Item>Date: {date}</List.Item>\n         <List.Item>Time: {classInfo.time}</List.Item>\n-        <List.Item>\n-          Booked spots: {classInfo.students.length}/{classInfo.spots}\n-        </List.Item>\n+        <List.Item>Booked spots: {classInfo.spots}</List.Item>\n       </List>\n     </Modal>\n   );\n };\n"
+                },
+                {
+                    "date": 1656836821043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,12 @@\n import dayjs from \"dayjs\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n   const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n+\n+  const { data, error, isLoading, isSuccess } = useClassesQuery();\n+\n+  console.log(data);\n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n         <List.Item>Class: {classInfo.name}</List.Item>\n"
+                },
+                {
+                    "date": 1656836841851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,12 +2,13 @@\n import dayjs from \"dayjs\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n   const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n+  import { useClassesQuery } from \"../store/api\";\n \n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n \n-  console.log(data);\n+  // console.log(data);\n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n         <List.Item>Class: {classInfo.name}</List.Item>\n"
+                },
+                {
+                    "date": 1656836849685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n import { List, Modal } from \"antd\";\n import dayjs from \"dayjs\";\n+import { useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n   const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n-  import { useClassesQuery } from \"../store/api\";\n \n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n \n   // console.log(data);\n"
+                },
+                {
+                    "date": 1656836867168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n   const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n \n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n \n-  // console.log(data);\n+  console.log(data);\n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n         <List.Item>Class: {classInfo.name}</List.Item>\n"
                 }
             ],
             "date": 1656599358732,

@@ -1,29 +1,36 @@
 {
-  "classes": {
-    "2022, 02, 22": [
+  "classes": [
       {
+        "id": 1,
         "name": "yoga for beginners",
-        "time": "12:00",
-        "spots": 10
+        "spots": 10,
+        "students": [],
+        "date": "22-07-2022",
+        "time": "17:00"
       },
       {
+        "id": 2,
         "name": "yoga for advanced",
-        "time": "14:00",
-        "spots": 10
-      }
-    ],
-    "2022, 02, 20": [
-      {
-        "name": "yoga for back pain",
-        "time": "10:00",
-        "spots": 10
+        "spots": 10,
+        "students": [],
+        "date": "25-07-2022",
+        "time": "17:00"
       },
       {
-        "name": "yoga nidra",
-        "time": "21:00",
-        "spots": 10
+        "id": 3,
+        "name": "yoga for back pain",
+        "spots": 10,
+        "students": [],
+        "date": "20-07-2022",
+        "time": "18:00"
+      },
+      {
+        "id": 4,
+        "name": "yoga vinyasa",
+        "spots": 10,
+        "students": [],
+        "date": "21-07-2022",
+        "time": "18:00"
       }
     ]
-    }
   }
-}
