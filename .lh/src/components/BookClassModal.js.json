@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 8,
+            "activePatchIndex": 128,
             "patches": [
                 {
                     "date": 1656599358732,
@@ -40,6 +40,486 @@
                 {
                     "date": 1656836867168,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n   const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n \n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n \n-  // console.log(data);\n+  console.log(data);\n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n         <List.Item>Class: {classInfo.name}</List.Item>\n"
+                },
+                {
+                    "date": 1656838274069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,12 +3,10 @@\n import { useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n   const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n+  console.log(date);\n \n-  const { data, error, isLoading, isSuccess } = useClassesQuery();\n-\n-  console.log(data);\n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n         <List.Item>Class: {classInfo.name}</List.Item>\n"
+                },
+                {
+                    "date": 1656838310320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n import { useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n   const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n-  console.log(date);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n"
+                },
+                {
+                    "date": 1656842614911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,12 @@\n import { List, Modal } from \"antd\";\n+import useSelection from \"antd/lib/table/hooks/useSelection\";\n import dayjs from \"dayjs\";\n-import { useClassesQuery } from \"../store/api\";\n+import { classApi, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n+)\n+\n   const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n"
+                },
+                {
+                    "date": 1656843158198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,9 @@\n import { List, Modal } from \"antd\";\n-import useSelection from \"antd/lib/table/hooks/useSelection\";\n import dayjs from \"dayjs\";\n-import { classApi, useClassesQuery } from \"../store/api\";\n+import { useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n-)\n-\n   const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n"
+                },
+                {
+                    "date": 1656847681743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import { useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n   const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n+  const { data } = useClassesQuery();\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n"
+                },
+                {
+                    "date": 1656847718969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,10 @@\n \n const BookClassModal = ({ visible, classInfo }) => {\n   const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data } = useClassesQuery();\n+  const classes = data.classes;\n+  console.log(classes);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n"
+                },
+                {
+                    "date": 1656847802603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,18 +2,19 @@\n import dayjs from \"dayjs\";\n import { useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n-  const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n-  const { data } = useClassesQuery();\n+  // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n+  const { data, error, isLoading, isSuccess } = useClassesQuery();\n+\n   const classes = data.classes;\n   console.log(classes);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n         <List.Item>Class: {classInfo.name}</List.Item>\n-        <List.Item>Date: {date}</List.Item>\n+        <List.Item>Date: {}</List.Item>\n         <List.Item>Time: {classInfo.time}</List.Item>\n         <List.Item>Booked spots: {classInfo.spots}</List.Item>\n       </List>\n     </Modal>\n"
+                },
+                {
+                    "date": 1656847816507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n const BookClassModal = ({ visible, classInfo }) => {\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n \n-  const classes = data.classes;\n+  const classes = data?.classes;\n   console.log(classes);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n"
+                },
+                {
+                    "date": 1656847911874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,17 +6,17 @@\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n \n   const classes = data?.classes;\n-  console.log(classes);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n         <List.Item>Class: {classInfo.name}</List.Item>\n         <List.Item>Date: {}</List.Item>\n         <List.Item>Time: {classInfo.time}</List.Item>\n         <List.Item>Booked spots: {classInfo.spots}</List.Item>\n+        <List.Item>{isSuccess && JSON.stringify(data.classes)}</List.Item>\n       </List>\n     </Modal>\n   );\n };\n"
+                },
+                {
+                    "date": 1656847932540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n const BookClassModal = ({ visible, classInfo }) => {\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n \n-  const classes = data?.classes;\n+  const classes = data.classes;\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n"
+                },
+                {
+                    "date": 1656847945325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,8 @@\n const BookClassModal = ({ visible, classInfo }) => {\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n \n-  const classes = data.classes;\n-\n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n         <List.Item>Class: {classInfo.name}</List.Item>\n"
+                },
+                {
+                    "date": 1656848011477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,22 @@\n import { List, Modal } from \"antd\";\n import dayjs from \"dayjs\";\n+import { useSelector } from \"react-redux\";\n import { useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n-  const { data, error, isLoading, isSuccess } = useClassesQuery();\n+  // const { data, error, isLoading, isSuccess } = useClassesQuery();\n+  const data = useSelector((state) => state.classes);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n         <List.Item>Class: {classInfo.name}</List.Item>\n         <List.Item>Date: {}</List.Item>\n         <List.Item>Time: {classInfo.time}</List.Item>\n         <List.Item>Booked spots: {classInfo.spots}</List.Item>\n-        <List.Item>{isSuccess && JSON.stringify(data.classes)}</List.Item>\n+        <List.Item>{JSON.stringify(data.classes)}</List.Item>\n       </List>\n     </Modal>\n   );\n };\n"
+                },
+                {
+                    "date": 1656848047851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \n const BookClassModal = ({ visible, classInfo }) => {\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   // const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const data = useSelector((state) => state.classes);\n+  const data = useSelector((state) => state?.classes);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n"
+                },
+                {
+                    "date": 1656848060725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \n const BookClassModal = ({ visible, classInfo }) => {\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   // const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const data = useSelector((state) => state?.classes);\n+  const data = useSelector((state) => state);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n"
+                },
+                {
+                    "date": 1656848090955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n const BookClassModal = ({ visible, classInfo }) => {\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   // const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const data = useSelector((state) => state);\n+  console.warn(data);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n"
+                },
+                {
+                    "date": 1656848104095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const BookClassModal = ({ visible, classInfo }) => {\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   // const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const data = useSelector((state) => state);\n-  console.warn(data);\n+  console.warn(data.classApi);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n"
+                },
+                {
+                    "date": 1656848122625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,9 @@\n import { useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n-  // const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const data = useSelector((state) => state);\n-  console.warn(data.classApi);\n+  const { data, error, isLoading, isSuccess } = useClassesQuery();\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n"
+                },
+                {
+                    "date": 1656848162985,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n+        {isSuccess && JSON.stringify(data)}\n         <List.Item>Class: {classInfo.name}</List.Item>\n         <List.Item>Date: {}</List.Item>\n         <List.Item>Time: {classInfo.time}</List.Item>\n         <List.Item>Booked spots: {classInfo.spots}</List.Item>\n"
+                },
+                {
+                    "date": 1656848180426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,8 @@\n         <List.Item>Class: {classInfo.name}</List.Item>\n         <List.Item>Date: {}</List.Item>\n         <List.Item>Time: {classInfo.time}</List.Item>\n         <List.Item>Booked spots: {classInfo.spots}</List.Item>\n-        <List.Item>{JSON.stringify(data.classes)}</List.Item>\n       </List>\n     </Modal>\n   );\n };\n"
+                },
+                {
+                    "date": 1656848302591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,20 @@\n import { List, Modal } from \"antd\";\n import dayjs from \"dayjs\";\n+import { useEffect, useState } from \"react\";\n import { useSelector } from \"react-redux\";\n import { useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classInfo }) => {\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n+  const [classes, setClasses] = useState([]);\n \n+  useEffect(() => {\n+    if (isSuccess) {\n+    }\n+  }, [data]);\n+\n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>\n         {isSuccess && JSON.stringify(data)}\n"
+                },
+                {
+                    "date": 1656848533768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,27 +3,25 @@\n import { useEffect, useState } from \"react\";\n import { useSelector } from \"react-redux\";\n import { useClassesQuery } from \"../store/api\";\n \n-const BookClassModal = ({ visible, classInfo }) => {\n+const BookClassModal = ({ visible, classData }) => {\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [classes, setClasses] = useState([]);\n \n   useEffect(() => {\n     if (isSuccess) {\n+      const classesList = data.filter(\n+        (el) => el.date === dayjs(classData).format(\"DD-MM-YYY\")\n+      );\n+      setClasses(classesList);\n     }\n-  }, [data]);\n+  }, [isSuccess]);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n-      <List>\n-        {isSuccess && JSON.stringify(data)}\n-        <List.Item>Class: {classInfo.name}</List.Item>\n-        <List.Item>Date: {}</List.Item>\n-        <List.Item>Time: {classInfo.time}</List.Item>\n-        <List.Item>Booked spots: {classInfo.spots}</List.Item>\n-      </List>\n+      <List>{isSuccess && JSON.stringify(data)}</List>\n     </Modal>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1656848569671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n   }, [isSuccess]);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n-      <List>{isSuccess && JSON.stringify(data)}</List>\n+      <List>{isSuccess && JSON.stringify(classes)}</List>\n     </Modal>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1656848632884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,11 @@\n   const [classes, setClasses] = useState([]);\n \n   useEffect(() => {\n     if (isSuccess) {\n-      const classesList = data.filter(\n-        (el) => el.date === dayjs(classData).format(\"DD-MM-YYY\")\n-      );\n+      const classesList = data.filter((el) => {\n+        el.date === dayjs(classData).format(\"DD-MM-YYY\");\n+      });\n       setClasses(classesList);\n     }\n   }, [isSuccess]);\n \n"
+                },
+                {
+                    "date": 1656848668848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n \n   useEffect(() => {\n     if (isSuccess) {\n       const classesList = data.filter((el) => {\n-        el.date === dayjs(classData).format(\"DD-MM-YYY\");\n+        console.log(el.date);\n+        console.log(classData);\n+        return el.date === dayjs(classData).format(\"DD-MM-YYY\");\n       });\n       setClasses(classesList);\n     }\n   }, [isSuccess]);\n"
+                },
+                {
+                    "date": 1656848739788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n \n   useEffect(() => {\n     if (isSuccess) {\n       const classesList = data.filter((el) => {\n-        console.log(el.date);\n-        console.log(classData);\n+        console.log(el.date, \"element\");\n+        console.log(classData, \"class date\");\n         return el.date === dayjs(classData).format(\"DD-MM-YYY\");\n       });\n       setClasses(classesList);\n     }\n"
+                },
+                {
+                    "date": 1656848850590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         return el.date === dayjs(classData).format(\"DD-MM-YYY\");\n       });\n       setClasses(classesList);\n     }\n-  }, [isSuccess]);\n+  }, [data, isSuccess]);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>{isSuccess && JSON.stringify(classes)}</List>\n"
+                },
+                {
+                    "date": 1656848882003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,18 +8,16 @@\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [classes, setClasses] = useState([]);\n \n-  useEffect(() => {\n-    if (isSuccess) {\n-      const classesList = data.filter((el) => {\n-        console.log(el.date, \"element\");\n-        console.log(classData, \"class date\");\n-        return el.date === dayjs(classData).format(\"DD-MM-YYY\");\n-      });\n-      setClasses(classesList);\n-    }\n-  }, [data, isSuccess]);\n+  if (isSuccess) {\n+    const classesList = data.filter((el) => {\n+      console.log(el.date, \"element\");\n+      console.log(classData, \"class date\");\n+      return el.date === dayjs(classData).format(\"DD-MM-YYY\");\n+    });\n+    setClasses(classesList);\n+  }\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>{isSuccess && JSON.stringify(classes)}</List>\n"
+                },
+                {
+                    "date": 1656848981051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,16 +8,18 @@\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [classes, setClasses] = useState([]);\n \n-  if (isSuccess) {\n-    const classesList = data.filter((el) => {\n-      console.log(el.date, \"element\");\n-      console.log(classData, \"class date\");\n-      return el.date === dayjs(classData).format(\"DD-MM-YYY\");\n-    });\n-    setClasses(classesList);\n-  }\n+  useEffect(() => {\n+    if (isSuccess) {\n+      const classesList = data.filter((el) => {\n+        console.log(el.date, \"element\");\n+        console.log(classData, \"class date\");\n+        return el.date === dayjs(classData).format(\"DD-MM-YYY\");\n+      });\n+      setClasses(classesList);\n+    }\n+  }, [isSuccess, data]);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>{isSuccess && JSON.stringify(classes)}</List>\n"
+                },
+                {
+                    "date": 1656849005044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         return el.date === dayjs(classData).format(\"DD-MM-YYY\");\n       });\n       setClasses(classesList);\n     }\n-  }, [isSuccess, data]);\n+  }, [isSuccess, data, isLoading]);\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>{isSuccess && JSON.stringify(classes)}</List>\n"
+                },
+                {
+                    "date": 1656849054685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,12 @@\n       setClasses(classesList);\n     }\n   }, [isSuccess, data, isLoading]);\n \n+  if (!isSuccess) {\n+    return <div>loading</div>;\n+  }\n+\n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>{isSuccess && JSON.stringify(classes)}</List>\n     </Modal>\n"
+                },
+                {
+                    "date": 1656849119067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,26 +8,27 @@\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [classes, setClasses] = useState([]);\n \n-  useEffect(() => {\n-    if (isSuccess) {\n-      const classesList = data.filter((el) => {\n-        console.log(el.date, \"element\");\n-        console.log(classData, \"class date\");\n-        return el.date === dayjs(classData).format(\"DD-MM-YYY\");\n-      });\n-      setClasses(classesList);\n-    }\n-  }, [isSuccess, data, isLoading]);\n+  // useEffect(() => {\n+  //   if (isSuccess) {\n+  //     const classesList = data.filter((el) => {\n+  //       console.log(el.date, \"element\");\n+  //       console.log(classData, \"class date\");\n+  //       return el.date === dayjs(classData).format(\"DD-MM-YYY\");\n+  //     });\n+  //     setClasses(classesList);\n+  //   }\n+  // }, [isSuccess, data, isLoading]);\n \n   if (!isSuccess) {\n     return <div>loading</div>;\n   }\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>{isSuccess && JSON.stringify(classes)}</List>\n+      <List>{JSON.stringify(classData)}</List>\n     </Modal>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1656849156429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List>{isSuccess && JSON.stringify(classes)}</List>\n-      <List>{JSON.stringify(classData)}</List>\n+      <List>{dayjs(classData).format(\"DD-MM-YYYY\")}</List>\n     </Modal>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1656849185746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,26 +8,15 @@\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [classes, setClasses] = useState([]);\n \n-  // useEffect(() => {\n-  //   if (isSuccess) {\n-  //     const classesList = data.filter((el) => {\n-  //       console.log(el.date, \"element\");\n-  //       console.log(classData, \"class date\");\n-  //       return el.date === dayjs(classData).format(\"DD-MM-YYY\");\n-  //     });\n-  //     setClasses(classesList);\n-  //   }\n-  // }, [isSuccess, data, isLoading]);\n-\n   if (!isSuccess) {\n     return <div>loading</div>;\n   }\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n-      <List>{isSuccess && JSON.stringify(classes)}</List>\n+      <List>{isSuccess && JSON.stringify(data)}</List>\n       <List>{dayjs(classData).format(\"DD-MM-YYYY\")}</List>\n     </Modal>\n   );\n };\n"
+                },
+                {
+                    "date": 1656849268818,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,16 @@\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [classes, setClasses] = useState([]);\n \n+  const renderClassesList = () => {\n+    const list = data.filter((el) => {\n+      console.log(el);\n+    });\n+  };\n+\n+  renderClassesList();\n+\n   if (!isSuccess) {\n     return <div>loading</div>;\n   }\n \n"
+                },
+                {
+                    "date": 1656849385064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,13 +10,18 @@\n   const [classes, setClasses] = useState([]);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n-      console.log(el);\n+      return el.date === dayjs(classData).format(\"DD-MM-YYYY\")\n     });\n+    return<ul>\n+      list.map(el => {\n+        return <li>el.name</li>\n+      })\n+    </ul>\n   };\n \n-  renderClassesList();\n+  \n \n   if (!isSuccess) {\n     return <div>loading</div>;\n   }\n"
+                },
+                {
+                    "date": 1656849418221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,19 +10,19 @@\n   const [classes, setClasses] = useState([]);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n-      return el.date === dayjs(classData).format(\"DD-MM-YYYY\")\n+      return el.date === dayjs(classData).format(\"DD-MM-YYYY\");\n     });\n-    return<ul>\n-      list.map(el => {\n-        return <li>el.name</li>\n-      })\n-    </ul>\n+    return (\n+      <ul>\n+        {list.map((el) => (\n+          <li>el.name</li>\n+        ))}\n+      </ul>\n+    );\n   };\n \n-  \n-\n   if (!isSuccess) {\n     return <div>loading</div>;\n   }\n \n"
+                },
+                {
+                    "date": 1656849441294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   }\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n-      <List>{isSuccess && JSON.stringify(data)}</List>\n+      <List>{isSuccess && renderClassesList}</List>\n       <List>{dayjs(classData).format(\"DD-MM-YYYY\")}</List>\n     </Modal>\n   );\n };\n"
+                },
+                {
+                    "date": 1656849451400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   }\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n-      <List>{isSuccess && renderClassesList}</List>\n+      <List>{isSuccess && renderClassesList()}</List>\n       <List>{dayjs(classData).format(\"DD-MM-YYYY\")}</List>\n     </Modal>\n   );\n };\n"
+                },
+                {
+                    "date": 1656849467161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     });\n     return (\n       <ul>\n         {list.map((el) => (\n-          <li>el.name</li>\n+          <li>{el.name}</li>\n         ))}\n       </ul>\n     );\n   };\n"
+                },
+                {
+                    "date": 1656861272714,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n   }\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n-      <List>{isSuccess && renderClassesList()}</List>\n+      <List>{renderClassesList()}</List>\n       <List>{dayjs(classData).format(\"DD-MM-YYYY\")}</List>\n     </Modal>\n   );\n };\n"
+                },
+                {
+                    "date": 1656861519949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,13 +13,13 @@\n     const list = data.filter((el) => {\n       return el.date === dayjs(classData).format(\"DD-MM-YYYY\");\n     });\n     return (\n-      <ul>\n+      <List>\n         {list.map((el) => (\n-          <li>{el.name}</li>\n+          <List.Item>{el.name}</List.Item>\n         ))}\n-      </ul>\n+      </List>\n     );\n   };\n \n   if (!isSuccess) {\n"
+                },
+                {
+                    "date": 1656861556558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,10 +27,9 @@\n   }\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n-      <List>{renderClassesList()}</List>\n-      <List>{dayjs(classData).format(\"DD-MM-YYYY\")}</List>\n+      {renderClassesList()}\n     </Modal>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1656862072213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     });\n     return (\n       <List>\n         {list.map((el) => (\n-          <List.Item>{el.name}</List.Item>\n+          <List.Item.Meta key={el.id} description={el.name} />\n         ))}\n       </List>\n     );\n   };\n"
+                },
+                {
+                    "date": 1656862136592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     });\n     return (\n       <List>\n         {list.map((el) => (\n-          <List.Item.Meta key={el.id} description={el.name} />\n+          <List.Item.Meta key={el.id} title={el.name} description={el.time} />\n         ))}\n       </List>\n     );\n   };\n"
+                },
+                {
+                    "date": 1656862249415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,13 @@\n     });\n     return (\n       <List>\n         {list.map((el) => (\n-          <List.Item.Meta key={el.id} title={el.name} description={el.time} />\n+          <List.Item.Meta key={el.id} title={el.name}>\n+            <h4>Time: {el.time}</h4>\n+            <h4>Date: {el.date}</h4>\n+            <h4>Free spots: {el.spots - el.students.length}</h4>\n+          </List.Item.Meta>\n         ))}\n       </List>\n     );\n   };\n"
+                },
+                {
+                    "date": 1656862349099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,11 +16,13 @@\n     return (\n       <List>\n         {list.map((el) => (\n           <List.Item.Meta key={el.id} title={el.name}>\n-            <h4>Time: {el.time}</h4>\n-            <h4>Date: {el.date}</h4>\n-            <h4>Free spots: {el.spots - el.students.length}</h4>\n+            <div>\n+              <h4>Time: {el.time}</h4>\n+              <h4>Date: {el.date}</h4>\n+              <h4>Free spots: {el.spots - el.students.length}</h4>\n+            </div>\n           </List.Item.Meta>\n         ))}\n       </List>\n     );\n"
+                },
+                {
+                    "date": 1656862397347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,15 +15,15 @@\n     });\n     return (\n       <List>\n         {list.map((el) => (\n-          <List.Item.Meta key={el.id} title={el.name}>\n-            <div>\n+          <List.Item>\n+            <List.Item.Meta key={el.id} title={el.name}>\n               <h4>Time: {el.time}</h4>\n               <h4>Date: {el.date}</h4>\n               <h4>Free spots: {el.spots - el.students.length}</h4>\n-            </div>\n-          </List.Item.Meta>\n+            </List.Item.Meta>\n+          </List.Item>\n         ))}\n       </List>\n     );\n   };\n"
+                },
+                {
+                    "date": 1656862587534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,12 @@\n     const list = data.filter((el) => {\n       return el.date === dayjs(classData).format(\"DD-MM-YYYY\");\n     });\n     return (\n-      <List>\n+      <List\n+        dataSource={list}\n+        renderItem={(listItem) => <div>item: {listItem}</div>}\n+      >\n         {list.map((el) => (\n           <List.Item>\n             <List.Item.Meta key={el.id} title={el.name}>\n               <h4>Time: {el.time}</h4>\n"
+                },
+                {
+                    "date": 1656862631806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     });\n     return (\n       <List\n         dataSource={list}\n-        renderItem={(listItem) => <div>item: {listItem}</div>}\n+        renderItem={(listItem) => <div>item: {JSON.stringify(listIem)}</div>}\n       >\n         {list.map((el) => (\n           <List.Item>\n             <List.Item.Meta key={el.id} title={el.name}>\n"
+                },
+                {
+                    "date": 1656862639015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     });\n     return (\n       <List\n         dataSource={list}\n-        renderItem={(listItem) => <div>item: {JSON.stringify(listIem)}</div>}\n+        renderItem={(listItem) => <div>item: {JSON.stringify(listItem)}</div>}\n       >\n         {list.map((el) => (\n           <List.Item>\n             <List.Item.Meta key={el.id} title={el.name}>\n"
+                },
+                {
+                    "date": 1656862722465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,19 +15,27 @@\n     });\n     return (\n       <List\n         dataSource={list}\n-        renderItem={(listItem) => <div>item: {JSON.stringify(listItem)}</div>}\n+        renderItem={(el) => (\n+          <List.Item>\n+            <List.Item.Meta key={el.id} title={el.name}>\n+              <h4>Time: {el.time}</h4>\n+              <h4>Date: {el.date}</h4>\n+              <h4>Free spots: {el.spots - el.students.length}</h4>\n+            </List.Item.Meta>\n+          </List.Item>\n+        )}\n       >\n-        {list.map((el) => (\n+        {/* {list.map((el) => (\n           <List.Item>\n             <List.Item.Meta key={el.id} title={el.name}>\n               <h4>Time: {el.time}</h4>\n               <h4>Date: {el.date}</h4>\n               <h4>Free spots: {el.spots - el.students.length}</h4>\n             </List.Item.Meta>\n           </List.Item>\n-        ))}\n+        ))} */}\n       </List>\n     );\n   };\n \n"
+                },
+                {
+                    "date": 1656862835012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,8 +45,32 @@\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       {renderClassesList()}\n+      <List\n+        className=\"demo-loadmore-list\"\n+        loading={initLoading}\n+        itemLayout=\"horizontal\"\n+        loadMore={loadMore}\n+        dataSource={list}\n+        renderItem={(item) => (\n+          <List.Item\n+            actions={[\n+              <a key=\"list-loadmore-edit\">edit</a>,\n+              <a key=\"list-loadmore-more\">more</a>,\n+            ]}\n+          >\n+            <Skeleton avatar title={false} loading={item.loading} active>\n+              <List.Item.Meta\n+                avatar={<Avatar src={item.picture.large} />}\n+                title={<a href=\"https://ant.design\">{item.name?.last}</a>}\n+                description=\"Ant Design, a design language for background applications, is refined by Ant UED Team\"\n+              />\n+              <div>content</div>\n+            </Skeleton>\n+          </List.Item>\n+        )}\n+      />\n     </Modal>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1656862872345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,32 +45,8 @@\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       {renderClassesList()}\n-      <List\n-        className=\"demo-loadmore-list\"\n-        loading={initLoading}\n-        itemLayout=\"horizontal\"\n-        loadMore={loadMore}\n-        dataSource={list}\n-        renderItem={(item) => (\n-          <List.Item\n-            actions={[\n-              <a key=\"list-loadmore-edit\">edit</a>,\n-              <a key=\"list-loadmore-more\">more</a>,\n-            ]}\n-          >\n-            <Skeleton avatar title={false} loading={item.loading} active>\n-              <List.Item.Meta\n-                avatar={<Avatar src={item.picture.large} />}\n-                title={<a href=\"https://ant.design\">{item.name?.last}</a>}\n-                description=\"Ant Design, a design language for background applications, is refined by Ant UED Team\"\n-              />\n-              <div>content</div>\n-            </Skeleton>\n-          </List.Item>\n-        )}\n-      />\n     </Modal>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1656862896930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,13 +17,12 @@\n       <List\n         dataSource={list}\n         renderItem={(el) => (\n           <List.Item>\n-            <List.Item.Meta key={el.id} title={el.name}>\n-              <h4>Time: {el.time}</h4>\n-              <h4>Date: {el.date}</h4>\n-              <h4>Free spots: {el.spots - el.students.length}</h4>\n-            </List.Item.Meta>\n+            <List.Item.Meta key={el.id} title={el.name} />\n+            <h4>Time: {el.time}</h4>\n+            <h4>Date: {el.date}</h4>\n+            <h4>Free spots: {el.spots - el.students.length}</h4>\n           </List.Item>\n         )}\n       >\n         {/* {list.map((el) => (\n"
+                },
+                {
+                    "date": 1656863032547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     return (\n       <List\n         dataSource={list}\n         renderItem={(el) => (\n-          <List.Item>\n+          <List.Item itemLayout={\"vertical\"}>\n             <List.Item.Meta key={el.id} title={el.name} />\n             <h4>Time: {el.time}</h4>\n             <h4>Date: {el.date}</h4>\n             <h4>Free spots: {el.spots - el.students.length}</h4>\n"
+                },
+                {
+                    "date": 1656863069545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,11 @@\n     });\n     return (\n       <List\n         dataSource={list}\n+        itemLayout={\"vertical\"}\n         renderItem={(el) => (\n-          <List.Item itemLayout={\"vertical\"}>\n+          <List.Item>\n             <List.Item.Meta key={el.id} title={el.name} />\n             <h4>Time: {el.time}</h4>\n             <h4>Date: {el.date}</h4>\n             <h4>Free spots: {el.spots - el.students.length}</h4>\n"
+                },
+                {
+                    "date": 1656863167247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { List, Modal } from \"antd\";\n+import { Button, List, Modal } from \"antd\";\n import dayjs from \"dayjs\";\n import { useEffect, useState } from \"react\";\n import { useSelector } from \"react-redux\";\n import { useClassesQuery } from \"../store/api\";\n@@ -22,8 +22,9 @@\n             <List.Item.Meta key={el.id} title={el.name} />\n             <h4>Time: {el.time}</h4>\n             <h4>Date: {el.date}</h4>\n             <h4>Free spots: {el.spots - el.students.length}</h4>\n+            <Button>Book class!</Button>\n           </List.Item>\n         )}\n       >\n         {/* {list.map((el) => (\n"
+                },
+                {
+                    "date": 1656863178450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             <List.Item.Meta key={el.id} title={el.name} />\n             <h4>Time: {el.time}</h4>\n             <h4>Date: {el.date}</h4>\n             <h4>Free spots: {el.spots - el.students.length}</h4>\n-            <Button>Book class!</Button>\n+            <Button type=\"primary\">Book class!</Button>\n           </List.Item>\n         )}\n       >\n         {/* {list.map((el) => (\n"
+                },
+                {
+                    "date": 1656863266639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,11 @@\n import { Button, List, Modal } from \"antd\";\n import dayjs from \"dayjs\";\n-import { useEffect, useState } from \"react\";\n-import { useSelector } from \"react-redux\";\n import { useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const [classes, setClasses] = useState([]);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n       return el.date === dayjs(classData).format(\"DD-MM-YYYY\");\n"
+                },
+                {
+                    "date": 1656863837007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,19 +22,9 @@\n             <h4>Free spots: {el.spots - el.students.length}</h4>\n             <Button type=\"primary\">Book class!</Button>\n           </List.Item>\n         )}\n-      >\n-        {/* {list.map((el) => (\n-          <List.Item>\n-            <List.Item.Meta key={el.id} title={el.name}>\n-              <h4>Time: {el.time}</h4>\n-              <h4>Date: {el.date}</h4>\n-              <h4>Free spots: {el.spots - el.students.length}</h4>\n-            </List.Item.Meta>\n-          </List.Item>\n-        ))} */}\n-      </List>\n+      ></List>\n     );\n   };\n \n   if (!isSuccess) {\n"
+                },
+                {
+                    "date": 1656863888079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n import dayjs from \"dayjs\";\n import { useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n-  // const date = dayjs(classInfo.date).format(\"DD-MM-YYYY\");\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n+  const { data, error, isLoading, isSuccess } = useClassesQuery();\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n       return el.date === dayjs(classData).format(\"DD-MM-YYYY\");\n"
+                },
+                {
+                    "date": 1656863898986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n import { Button, List, Modal } from \"antd\";\n import dayjs from \"dayjs\";\n-import { useClassesQuery } from \"../store/api\";\n+import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const { data, error, isLoading, isSuccess } = useClassesQuery();\n+  const { data, error, isLoading, isSuccess } = useBookClass();\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n       return el.date === dayjs(classData).format(\"DD-MM-YYYY\");\n"
+                },
+                {
+                    "date": 1656864136777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const { data, error, isLoading, isSuccess } = useBookClass();\n+  const { bookClass, result } = useBookClass();\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n       return el.date === dayjs(classData).format(\"DD-MM-YYYY\");\n"
+                },
+                {
+                    "date": 1656864210708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,13 @@\n import { Button, List, Modal } from \"antd\";\n import dayjs from \"dayjs\";\n+import { useSelector } from \"react-redux\";\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const { bookClass, result } = useBookClass();\n+  const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n       return el.date === dayjs(classData).format(\"DD-MM-YYYY\");\n"
+                },
+                {
+                    "date": 1656864235460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,11 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const { bookClass, result } = useBookClass();\n+  // const { bookClass, result } = useBookClass();\n   const user = useSelector((state) => state.user);\n+  console.log(user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n       return el.date === dayjs(classData).format(\"DD-MM-YYYY\");\n"
+                },
+                {
+                    "date": 1656864250956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,10 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  // const { bookClass, result } = useBookClass();\n+  const { bookClass, result } = useBookClass();\n   const user = useSelector((state) => state.user);\n-  console.log(user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n       return el.date === dayjs(classData).format(\"DD-MM-YYYY\");\n"
+                },
+                {
+                    "date": 1656864442660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const { bookClass, result } = useBookClass();\n+  const [bookClass, result] = useBookClass();\n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656864580073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const [bookClass, result] = useBookClass();\n+  const [bookClass] = useBookClass();\n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656864609294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const [bookClass] = useBookClass();\n+  // const [bookClass] = useBookClass();\n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656864719237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  // const [bookClass] = useBookClass();\n+  const [bookClass] = useBookClass();\n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656864845480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const [bookClass] = useBookClass();\n+  console.log(useBookClass);\n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656865092132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,12 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  console.log(useBookClass);\n+  const [\n+    useBookClass, // This is the mutation trigger\n+    { isLoading: isUpdating }, // This is the destructured mutation result\n+  ] = useBookClass();\n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656865124989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,12 +4,9 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const [\n-    useBookClass, // This is the mutation trigger\n-    { isLoading: isUpdating }, // This is the destructured mutation result\n-  ] = useBookClass();\n+  const [bookClass] = useBookClass();\n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656865130295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const [bookClass] = useBookClass();\n+  // const [bookClass] = useBookClass();\n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656865746654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,11 @@\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   // const [bookClass] = useBookClass();\n+\n+  consolr.warn(JSON.stringify(data));\n+\n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656865753302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   // const [bookClass] = useBookClass();\n \n-  consolr.warn(JSON.stringify(data));\n+  console.warn(JSON.stringify(data));\n \n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n"
+                },
+                {
+                    "date": 1656866342863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,8 @@\n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   // const [bookClass] = useBookClass();\n \n-  console.warn(JSON.stringify(data));\n-\n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656866352136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  // const [bookClass] = useBookClass();\n+  const [bookClass] = useBookClass();\n \n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n"
+                },
+                {
+                    "date": 1656866382335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const [bookClass] = useBookClass();\n+  // const [bookClass] = useBookClass();\n \n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n"
+                },
+                {
+                    "date": 1656866390046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  // const [bookClass] = useBookClass();\n+  const [bookClass] = useBookClass();\n \n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n"
+                },
+                {
+                    "date": 1656866847539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { useBookClass, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const [bookClass] = useBookClass();\n+  const [bookClass, results] = useBookClass();\n \n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n"
+                },
+                {
+                    "date": 1656866998486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import { Button, List, Modal } from \"antd\";\n import dayjs from \"dayjs\";\n import { useSelector } from \"react-redux\";\n-import { useBookClass, useClassesQuery } from \"../store/api\";\n+import { useBookClassMutation, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const [bookClass, results] = useBookClass();\n+  const [bookClass, results] = useBookClassMutation();\n \n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n"
+                },
+                {
+                    "date": 1656867035465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { useBookClassMutation, useClassesQuery } from \"../store/api\";\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n-  const [bookClass, results] = useBookClassMutation();\n+  const [bookClass] = useBookClassMutation();\n \n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n"
+                },
+                {
+                    "date": 1656867200514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,13 @@\n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [bookClass] = useBookClassMutation();\n \n+  const bookClassHanlder = (e, id) => {\n+    e.preventDefault(),\n+    const class = data.filter(class => class.id === id)\n+  }\n+\n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656867225684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n   const [bookClass] = useBookClassMutation();\n \n   const bookClassHanlder = (e, id) => {\n     e.preventDefault(),\n-    const class = data.filter(class => class.id === id)\n+    \n   }\n \n   const user = useSelector((state) => state.user);\n \n"
+                },
+                {
+                    "date": 1656867233095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,10 @@\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [bookClass] = useBookClassMutation();\n \n   const bookClassHanlder = (e, id) => {\n-    e.preventDefault(),\n-    \n-  }\n+    e.preventDefault();\n+  };\n \n   const user = useSelector((state) => state.user);\n \n   const renderClassesList = () => {\n"
+                },
+                {
+                    "date": 1656867260686,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n   const [bookClass] = useBookClassMutation();\n \n   const bookClassHanlder = (e, id) => {\n     e.preventDefault();\n+    const class = data.filter(class => class.id === id)\n   };\n \n   const user = useSelector((state) => state.user);\n \n"
+                },
+                {
+                    "date": 1656867403090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,15 +6,18 @@\n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [bookClass] = useBookClassMutation();\n \n+  const user = useSelector((state) => state.user);\n   const bookClassHanlder = (e, id) => {\n     e.preventDefault();\n-    const class = data.filter(class => class.id === id)\n+    const seletedClass = data.filter((el) => el.id === id);\n+    useBookClassMutation(id, {\n+      ...seletedClass,\n+      students: [...seletedClass.students, user],\n+    });\n   };\n \n-  const user = useSelector((state) => state.user);\n-\n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n       return el.date === dayjs(classData).format(\"DD-MM-YYYY\");\n     });\n"
+                },
+                {
+                    "date": 1656867569729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,12 +10,13 @@\n   const user = useSelector((state) => state.user);\n   const bookClassHanlder = (e, id) => {\n     e.preventDefault();\n     const seletedClass = data.filter((el) => el.id === id);\n-    useBookClassMutation(id, {\n+    const updatedClass = {\n       ...seletedClass,\n       students: [...seletedClass.students, user],\n-    });\n+    };\n+    useBookClassMutation(updatedClass);\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656867588158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     const updatedClass = {\n       ...seletedClass,\n       students: [...seletedClass.students, user],\n     };\n-    useBookClassMutation(updatedClass);\n+    bookClass(updatedClass);\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656867593759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     const updatedClass = {\n       ...seletedClass,\n       students: [...seletedClass.students, user],\n     };\n-    bookClass(updatedClass);\n+    bookClass(id, updatedClass);\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656867682986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,16 @@\n             <List.Item.Meta key={el.id} title={el.name} />\n             <h4>Time: {el.time}</h4>\n             <h4>Date: {el.date}</h4>\n             <h4>Free spots: {el.spots - el.students.length}</h4>\n-            <Button type=\"primary\">Book class!</Button>\n+            <Button\n+              type=\"primary\"\n+              onClick={(e) => {\n+                bookClassHanlder(e, el.id);\n+              }}\n+            >\n+              Book class!\n+            </Button>\n           </List.Item>\n         )}\n       ></List>\n     );\n"
+                },
+                {
+                    "date": 1656867745899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [bookClass] = useBookClassMutation();\n+  console.log(data);\n \n   const user = useSelector((state) => state.user);\n   const bookClassHanlder = (e, id) => {\n     e.preventDefault();\n"
+                },
+                {
+                    "date": 1656867817454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n \n const BookClassModal = ({ visible, classData }) => {\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [bookClass] = useBookClassMutation();\n-  console.log(data);\n \n   const user = useSelector((state) => state.user);\n   const bookClassHanlder = (e, id) => {\n     e.preventDefault();\n@@ -15,8 +14,9 @@\n     const updatedClass = {\n       ...seletedClass,\n       students: [...seletedClass.students, user],\n     };\n+    console.log(updatedClass);\n     bookClass(id, updatedClass);\n   };\n \n   const renderClassesList = () => {\n"
+                },
+                {
+                    "date": 1656867853884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,13 +10,14 @@\n   const user = useSelector((state) => state.user);\n   const bookClassHanlder = (e, id) => {\n     e.preventDefault();\n     const seletedClass = data.filter((el) => el.id === id);\n+    console.log(selectedClass);\n     const updatedClass = {\n       ...seletedClass,\n       students: [...seletedClass.students, user],\n     };\n-    console.log(updatedClass);\n+\n     bookClass(id, updatedClass);\n   };\n \n   const renderClassesList = () => {\n"
+                },
+                {
+                    "date": 1656867861339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   const user = useSelector((state) => state.user);\n   const bookClassHanlder = (e, id) => {\n     e.preventDefault();\n     const seletedClass = data.filter((el) => el.id === id);\n-    console.log(selectedClass);\n+    console.log(seletedClass);\n     const updatedClass = {\n       ...seletedClass,\n       students: [...seletedClass.students, user],\n     };\n"
+                },
+                {
+                    "date": 1656867878019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \n   const user = useSelector((state) => state.user);\n   const bookClassHanlder = (e, id) => {\n     e.preventDefault();\n-    const seletedClass = data.filter((el) => el.id === id);\n+    const seletedClass = data?.filter((el) => el.id === id);\n     console.log(seletedClass);\n     const updatedClass = {\n       ...seletedClass,\n       students: [...seletedClass.students, user],\n"
+                },
+                {
+                    "date": 1656952190731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,16 +9,15 @@\n \n   const user = useSelector((state) => state.user);\n   const bookClassHanlder = (e, id) => {\n     e.preventDefault();\n-    const seletedClass = data?.filter((el) => el.id === id);\n-    console.log(seletedClass);\n+    const seletedClass = data.filter((el) => el.id === id);\n     const updatedClass = {\n       ...seletedClass,\n       students: [...seletedClass.students, user],\n     };\n \n-    bookClass(id, updatedClass);\n+    bookClass({ id, updatedClass });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656952210129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n       ...seletedClass,\n       students: [...seletedClass.students, user],\n     };\n \n-    bookClass({ id, updatedClass });\n+    bookClass(id, updatedClass);\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656952443436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [bookClass] = useBookClassMutation();\n \n   const user = useSelector((state) => state.user);\n+  console.log(user);\n   const bookClassHanlder = (e, id) => {\n     e.preventDefault();\n     const seletedClass = data.filter((el) => el.id === id);\n     const updatedClass = {\n"
+                },
+                {
+                    "date": 1656952487050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,18 +7,17 @@\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [bookClass] = useBookClassMutation();\n \n   const user = useSelector((state) => state.user);\n-  console.log(user);\n   const bookClassHanlder = (e, id) => {\n     e.preventDefault();\n-    const seletedClass = data.filter((el) => el.id === id);\n-    const updatedClass = {\n-      ...seletedClass,\n-      students: [...seletedClass.students, user],\n-    };\n+    // const seletedClass = data.filter((el) => el.id === id);\n+    // const updatedClass = {\n+    //   ...seletedClass,\n+    //   students: [...seletedClass.students, user],\n+    // };\n \n-    bookClass(id, updatedClass);\n+    bookClass({ id, user });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656952624495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     //   ...seletedClass,\n     //   students: [...seletedClass.students, user],\n     // };\n \n-    bookClass({ id, user });\n+    bookClass(id, user);\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656952678942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     //   ...seletedClass,\n     //   students: [...seletedClass.students, user],\n     // };\n \n-    bookClass(id, user);\n+    bookClass({ id, user });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656952807566,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,17 +7,19 @@\n   const { data, error, isLoading, isSuccess } = useClassesQuery();\n   const [bookClass] = useBookClassMutation();\n \n   const user = useSelector((state) => state.user);\n-  const bookClassHanlder = (e, id) => {\n+  const bookClassHanlder = (e, el) => {\n     e.preventDefault();\n     // const seletedClass = data.filter((el) => el.id === id);\n     // const updatedClass = {\n     //   ...seletedClass,\n     //   students: [...seletedClass.students, user],\n     // };\n \n-    bookClass({ id, user });\n+    console.log(el);\n+\n+    bookClass(el.id, user);\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n@@ -35,9 +37,9 @@\n             <h4>Free spots: {el.spots - el.students.length}</h4>\n             <Button\n               type=\"primary\"\n               onClick={(e) => {\n-                bookClassHanlder(e, el.id);\n+                bookClassHanlder(e, el);\n               }}\n             >\n               Book class!\n             </Button>\n"
+                },
+                {
+                    "date": 1656952859023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,16 +10,16 @@\n   const user = useSelector((state) => state.user);\n   const bookClassHanlder = (e, el) => {\n     e.preventDefault();\n     // const seletedClass = data.filter((el) => el.id === id);\n-    // const updatedClass = {\n-    //   ...seletedClass,\n-    //   students: [...seletedClass.students, user],\n-    // };\n+    const updatedClass = {\n+      ...el,\n+      students: [...el.students, user],\n+    };\n \n     console.log(el);\n \n-    bookClass(el.id, user);\n+    bookClass(el.id, updatedClass);\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656953124682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,10 +16,11 @@\n       students: [...el.students, user],\n     };\n \n     console.log(el);\n+    const { id } = el;\n \n-    bookClass(el.id, updatedClass);\n+    bookClass({ id, updatedClass });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656953174289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n     console.log(el);\n     const { id } = el;\n \n-    bookClass({ id, updatedClass });\n+    bookClass({ id, user });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656953354539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n     console.log(el);\n     const { id } = el;\n \n-    bookClass({ id, user });\n+    bookClass({ id, updatedClass });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656953425462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n     console.log(el);\n     const { id } = el;\n \n-    bookClass({ id, updatedClass });\n+    bookClass({ id, user });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656953627462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n     console.log(el);\n     const { id } = el;\n \n-    bookClass({ id, user });\n+    bookClass({ id, updatedClass });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656954398580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n     console.log(el);\n     const { id } = el;\n \n-    bookClass({ id, updatedClass });\n+    bookClass({ updatedClass });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656954444998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n     console.log(el);\n     const { id } = el;\n \n-    bookClass({ updatedClass });\n+    bookClass(updatedClass);\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656954482782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n     console.log(el);\n     const { id } = el;\n \n-    bookClass(updatedClass);\n+    bookClass({ updatedClass });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656954518701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n     console.log(el);\n     const { id } = el;\n \n-    bookClass({ updatedClass });\n+    bookClass({ id, updatedClass });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656954890067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n       ...el,\n       students: [...el.students, user],\n     };\n \n-    console.log(el);\n+    console.log(updatedClass);\n     const { id } = el;\n \n     bookClass({ id, updatedClass });\n   };\n"
+                },
+                {
+                    "date": 1656955470620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n     console.log(updatedClass);\n     const { id } = el;\n \n-    bookClass({ id, updatedClass });\n+    bookClass({ id, user });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656955658018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n     console.log(updatedClass);\n     const { id } = el;\n \n-    bookClass({ id, user });\n+    bookClass({ id, updatedClass, user });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656955705786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \n     console.log(updatedClass);\n     const { id } = el;\n \n-    bookClass({ id, updatedClass, user });\n+    bookClass({ id, updatedClass });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656955799362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,17 +10,17 @@\n   const user = useSelector((state) => state.user);\n   const bookClassHanlder = (e, el) => {\n     e.preventDefault();\n     // const seletedClass = data.filter((el) => el.id === id);\n-    const updatedClass = {\n+    const students = {\n       ...el,\n       students: [...el.students, user],\n     };\n \n-    console.log(updatedClass);\n+    console.log(students);\n     const { id } = el;\n \n-    bookClass({ id, updatedClass });\n+    bookClass({ id, students });\n   };\n \n   const renderClassesList = () => {\n     const list = data.filter((el) => {\n"
+                },
+                {
+                    "date": 1656955856942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,12 +10,9 @@\n   const user = useSelector((state) => state.user);\n   const bookClassHanlder = (e, el) => {\n     e.preventDefault();\n     // const seletedClass = data.filter((el) => el.id === id);\n-    const students = {\n-      ...el,\n-      students: [...el.students, user],\n-    };\n+    const students = [...el.students, user];\n \n     console.log(students);\n     const { id } = el;\n \n"
                 }
             ],
             "date": 1656599358732,

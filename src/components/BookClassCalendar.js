@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import { List, Calendar } from "antd";
 import BookClassModal from "./BookClassModal";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useClassesQuery } from "../store/api";
 
 // const events = [
@@ -45,6 +46,7 @@ const getListData = (value, events) => {
 
 const BookClassCalendar = () => {
   const { data, error, isLoading, isSuccess } = useClassesQuery();
+
   const [showModal, setShowModal] = useState(false);
   const [value, setValue] = useState("");
 
@@ -52,7 +54,7 @@ const BookClassCalendar = () => {
     const listData = getListData(value, data);
 
     return (
-      <List className="events">
+      <List>
         {listData.map((item) => (
           <List.Item.Meta
             key={item.id}
@@ -60,18 +62,24 @@ const BookClassCalendar = () => {
             description={item.time}
             onClick={(e) => {
               setShowModal(true);
-              setValue(item);
+              // setValue(item);
             }}
           />
         ))}
       </List>
     );
   };
+  console.log(value);
 
   return (
     <>
-      {isSuccess && <Calendar dateCellRender={dateCellRender} />}
-      <BookClassModal visible={showModal} classInfo={value} />
+      {isSuccess && (
+        <Calendar
+          dateCellRender={dateCellRender}
+          onSelect={(value) => setValue(value)}
+        />
+      )}
+      {!isLoading && <BookClassModal visible={showModal} classData={value} />}
     </>
   );
 };

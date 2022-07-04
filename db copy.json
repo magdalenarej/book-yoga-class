@@ -7,13 +7,6 @@
         {
           "name": "Maria",
           "surname": "Kwiatkowska"
-        },
-        {
-          "id": 1,
-          "name": "Jan",
-          "surname": "Kowalski",
-          "classes": [],
-          "type": "student"
         }
       ],
       "date": "25-07-2022",
@@ -24,15 +17,7 @@
       "id": 2,
       "name": "yoga lvl 2",
       "spots": 10,
-      "students": [
-        {
-          "id": 1,
-          "name": "Jan",
-          "surname": "Kowalski",
-          "classes": [],
-          "type": "student"
-        }
-      ],
+      "students": [],
       "date": "25-07-2022",
       "time": "17:00"
     },

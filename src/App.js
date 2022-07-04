@@ -2,12 +2,16 @@ import "antd/dist/antd.css";
 import BookClassCalendar from "./components/BookClassCalendar";
 import { Layout } from "antd";
 
-const { Content, Header } = Layout;
+import SideMenu from "./components/SideMenu";
+
+const { Content, Sider } = Layout;
 
 const App = () => {
   return (
     <Layout>
-      <Header></Header>
+      <Sider>
+        <SideMenu />
+      </Sider>
       <Content>
         <BookClassCalendar />
       </Content>

@@ -5,11 +5,20 @@ export const classApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:4000",
   }),
+  tagTypes: ["classes"],
   endpoints: (builder) => ({
     classes: builder.query({
       query: () => "/classes",
     }),
+    bookClass: builder.mutation({
+      query: ({ id, ...body }) => ({
+        url: `classes/${id}`,
+        method: "PATCH",
+        body,
+      }),
+      invalidatesTags: ["classes"],
+    }),
   }),
 });
 
-export const { useClassesQuery } = classApi;
+export const { useClassesQuery, useBookClassMutation } = classApi;

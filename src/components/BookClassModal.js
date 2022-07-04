@@ -1,21 +1,59 @@
-import { List, Modal } from "antd";
+import { Button, List, Modal } from "antd";
 import dayjs from "dayjs";
-import { useClassesQuery } from "../store/api";
+import { useSelector } from "react-redux";
+import { useBookClassMutation, useClassesQuery } from "../store/api";
 
-const BookClassModal = ({ visible, classInfo }) => {
-  const date = dayjs(classInfo.date).format("DD-MM-YYYY");
-
+const BookClassModal = ({ visible, classData }) => {
   const { data, error, isLoading, isSuccess } = useClassesQuery();
+  const [bookClass] = useBookClassMutation();
 
-  console.log(data);
+  const user = useSelector((state) => state.user);
+  const bookClassHanlder = (e, el) => {
+    e.preventDefault();
+    // const seletedClass = data.filter((el) => el.id === id);
+    const students = [...el.students, user];
+
+    console.log(students);
+    const { id } = el;
+
+    bookClass({ id, students });
+  };
+
+  const renderClassesList = () => {
+    const list = data.filter((el) => {
+      return el.date === dayjs(classData).format("DD-MM-YYYY");
+    });
+    return (
+      <List
+        dataSource={list}
+        itemLayout={"vertical"}
+        renderItem={(el) => (
+          <List.Item>
+            <List.Item.Meta key={el.id} title={el.name} />
+            <h4>Time: {el.time}</h4>
+            <h4>Date: {el.date}</h4>
+            <h4>Free spots: {el.spots - el.students.length}</h4>
+            <Button
+              type="primary"
+              onClick={(e) => {
+                bookClassHanlder(e, el);
+              }}
+            >
+              Book class!
+            </Button>
+          </List.Item>
+        )}
+      ></List>
+    );
+  };
+
+  if (!isSuccess) {
+    return <div>loading</div>;
+  }
+
   return (
     <Modal visible={visible} onCancel={() => {}}>
-      <List>
-        <List.Item>Class: {classInfo.name}</List.Item>
-        <List.Item>Date: {date}</List.Item>
-        <List.Item>Time: {classInfo.time}</List.Item>
-        <List.Item>Booked spots: {classInfo.spots}</List.Item>
-      </List>
+      {renderClassesList()}
     </Modal>
   );
 };
