@@ -9,6 +9,7 @@ export const classApi = createApi({
   endpoints: (builder) => ({
     classes: builder.query({
       query: () => "/classes",
+      providesTags: ["classes"],
     }),
     bookClass: builder.mutation({
       query: ({ id, ...body }) => ({

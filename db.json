@@ -14,6 +14,20 @@
           "surname": "Kowalski",
           "classes": [],
           "type": "student"
+        },
+        {
+          "id": 1,
+          "name": "Jan",
+          "surname": "Kowalski",
+          "classes": [],
+          "type": "student"
+        },
+        {
+          "id": 1,
+          "name": "Jan",
+          "surname": "Kowalski",
+          "classes": [],
+          "type": "student"
         }
       ],
       "date": "25-07-2022",
@@ -31,6 +45,13 @@
           "surname": "Kowalski",
           "classes": [],
           "type": "student"
+        },
+        {
+          "id": 1,
+          "name": "Jan",
+          "surname": "Kowalski",
+          "classes": [],
+          "type": "student"
         }
       ],
       "date": "25-07-2022",
@@ -40,7 +61,15 @@
       "id": 3,
       "name": "yoga lvl 3",
       "spots": 10,
-      "students": [],
+      "students": [
+        {
+          "id": 1,
+          "name": "Jan",
+          "surname": "Kowalski",
+          "classes": [],
+          "type": "student"
+        }
+      ],
       "date": "25-07-2022",
       "time": "17:00"
     },
@@ -56,7 +85,29 @@
       "id": 5,
       "name": "yoga slow vinyasa",
       "spots": 10,
-      "students": [],
+      "students": [
+        {
+          "id": 1,
+          "name": "Jan",
+          "surname": "Kowalski",
+          "classes": [],
+          "type": "student"
+        },
+        {
+          "id": 1,
+          "name": "Jan",
+          "surname": "Kowalski",
+          "classes": [],
+          "type": "student"
+        },
+        {
+          "id": 1,
+          "name": "Jan",
+          "surname": "Kowalski",
+          "classes": [],
+          "type": "student"
+        }
+      ],
       "date": "21-07-2022",
       "time": "19:00"
     },
@@ -64,7 +115,15 @@
       "id": 6,
       "name": "yoga vinyasa",
       "spots": 10,
-      "students": [],
+      "students": [
+        {
+          "id": 1,
+          "name": "Jan",
+          "surname": "Kowalski",
+          "classes": [],
+          "type": "student"
+        }
+      ],
       "date": "21-07-2022",
       "time": "20:00"
     }
