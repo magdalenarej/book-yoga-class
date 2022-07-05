@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 137,
+            "activePatchIndex": 138,
             "patches": [
                 {
                     "date": 1656599358732,
@@ -556,6 +556,10 @@
                 {
                     "date": 1657032338054,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,8 @@\n   }\n \n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n-      {/* {renderClassesList()} */}\n       <List itemLayout={\"vertical\"}>\n         {list.map((el) => (\n           <ClassItem yogaClass={el} />\n         ))}\n"
+                },
+                {
+                    "date": 1657032415584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n   return (\n     <Modal visible={visible} onCancel={() => {}}>\n       <List itemLayout={\"vertical\"}>\n         {list.map((el) => (\n-          <ClassItem yogaClass={el} />\n+          <ClassItem key={el.id} yogaClass={el} />\n         ))}\n       </List>\n     </Modal>\n   );\n"
                 }
             ],
             "date": 1656599358732,

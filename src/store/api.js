@@ -19,7 +19,19 @@ export const classApi = createApi({
       }),
       invalidatesTags: ["classes"],
     }),
+    cancelClass: builder.mutation({
+      query: ({ id, ...body }) => ({
+        url: `classes/${id}`,
+        method: "PATCH",
+        body,
+      }),
+      invalidatesTags: ["classes"],
+    }),
   }),
 });
 
-export const { useClassesQuery, useBookClassMutation } = classApi;
+export const {
+  useClassesQuery,
+  useBookClassMutation,
+  useCancelClassMutation,
+} = classApi;

@@ -1,15 +1,34 @@
+import { useEffect, useState } from "react";
 import { List, Button } from "antd";
-import { useBookClassMutation, useClassesQuery } from "../store/api";
+import {
+  useBookClassMutation,
+  useClassesQuery,
+  useCancelClassMutation,
+} from "../store/api";
 import { useSelector } from "react-redux";
 
 const ClassItem = ({ yogaClass }) => {
+  const [isBooked, setIsBooked] = useState(false);
   const { data, error, isLoading, isSuccess } = useClassesQuery();
   const [
     bookClass,
-    { isLoading: isLoadingBook, isSuccess: isSuccessBook },
+    { isLoading: isLoadingBooking, isSuccess: isSuccessBooking },
   ] = useBookClassMutation();
-
+  const [
+    cancelClass,
+    { isSuccess: isSuccessCanceling },
+  ] = useCancelClassMutation();
   const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (!yogaClass.students.length) {
+      setIsBooked(false);
+    } else {
+      yogaClass.students.forEach((student) =>
+        student.id !== user.id ? setIsBooked(false) : setIsBooked(true)
+      );
+    }
+  }, [data, isSuccessCanceling, isSuccessBooking]);
 
   const bookClassHanlder = (e, yogaClass) => {
     e.preventDefault();
@@ -18,23 +37,36 @@ const ClassItem = ({ yogaClass }) => {
     bookClass({ id, students });
   };
 
-  if (!isSuccess) {
-    return <div>loading</div>;
-  }
+  const cancelClassHandler = (e, yogaClass) => {
+    e.preventDefault();
+    const students = yogaClass.students.filter(
+      (student) => student.id !== user.id
+    );
+    const { id } = yogaClass;
+    cancelClass({ id, students });
+  };
+
   return (
     <List.Item>
-      <List.Item.Meta key={yogaClass.id} title={yogaClass.name} />
+      <List.Item.Meta title={yogaClass.name} />
       <h4>Time: {yogaClass.time}</h4>
       <h4>Date: {yogaClass.date}</h4>
       <h4>Free spots: {yogaClass.spots - yogaClass.students.length}</h4>
-      <Button
-        type="primary"
-        onClick={(e) => {
-          bookClassHanlder(e, yogaClass);
-        }}
-      >
-        Book class!
-      </Button>
+      {!isBooked ? (
+        <Button
+          type="primary"
+          loading={isLoadingBooking}
+          onClick={(e) => {
+            bookClassHanlder(e, yogaClass);
+          }}
+        >
+          Book class!
+        </Button>
+      ) : (
+        <Button type="danger" onClick={(e) => cancelClassHandler(e, yogaClass)}>
+          Cancel class
+        </Button>
+      )}
     </List.Item>
   );
 };

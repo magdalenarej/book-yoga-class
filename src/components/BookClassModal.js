@@ -18,7 +18,7 @@ const BookClassModal = ({ visible, classData }) => {
     <Modal visible={visible} onCancel={() => {}}>
       <List itemLayout={"vertical"}>
         {list.map((el) => (
-          <ClassItem yogaClass={el} />
+          <ClassItem key={el.id} yogaClass={el} />
         ))}
       </List>
     </Modal>

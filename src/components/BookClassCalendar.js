@@ -69,7 +69,6 @@ const BookClassCalendar = () => {
       </List>
     );
   };
-  console.log(value);
 
   return (
     <>
