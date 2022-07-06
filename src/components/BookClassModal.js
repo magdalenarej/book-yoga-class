@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import { useClassesQuery } from "../store/api";
 import ClassItem from "./ClassItem";
 
-const BookClassModal = ({ visible, classData }) => {
+const BookClassModal = ({ visible, classData, isVisibleHanlder }) => {
   const { data, error, isLoading, isSuccess } = useClassesQuery();
 
   const list = data.filter((el) => {
@@ -15,7 +15,13 @@ const BookClassModal = ({ visible, classData }) => {
   }
 
   return (
-    <Modal visible={visible} onCancel={() => {}}>
+    <Modal
+      footer={null}
+      visible={visible}
+      onCancel={() => {
+        isVisibleHanlder();
+      }}
+    >
       <List itemLayout={"vertical"}>
         {list.map((el) => (
           <ClassItem key={el.id} yogaClass={el} />

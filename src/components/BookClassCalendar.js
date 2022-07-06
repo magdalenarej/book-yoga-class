@@ -78,7 +78,13 @@ const BookClassCalendar = () => {
           onSelect={(value) => setValue(value)}
         />
       )}
-      {!isLoading && <BookClassModal visible={showModal} classData={value} />}
+      {!isLoading && (
+        <BookClassModal
+          visible={showModal}
+          classData={value}
+          isVisibleHanlder={setShowModal}
+        />
+      )}
     </>
   );
 };

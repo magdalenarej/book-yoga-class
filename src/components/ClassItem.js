@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { List, Button } from "antd";
+import { List, Button, Popconfirm } from "antd";
 import {
   useBookClassMutation,
   useClassesQuery,
@@ -63,9 +63,13 @@ const ClassItem = ({ yogaClass }) => {
           Book class!
         </Button>
       ) : (
-        <Button type="danger" onClick={(e) => cancelClassHandler(e, yogaClass)}>
-          Cancel class
-        </Button>
+        <Popconfirm
+          placement="rightBottom"
+          title="Are you sure?"
+          onConfirm={(e) => cancelClassHandler(e, yogaClass)}
+        >
+          <Button type="danger">Cancel class</Button>
+        </Popconfirm>
       )}
     </List.Item>
   );
