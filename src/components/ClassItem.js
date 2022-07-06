@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { List, Button, Popconfirm, notification } from "antd";
+import { List, Button, Popconfirm, notification, Card } from "antd";
 import {
   useBookClassMutation,
   useClassesQuery,
@@ -48,33 +48,38 @@ const ClassItem = ({ yogaClass }) => {
     );
     const { id } = yogaClass;
     cancelClass({ id, students });
+    notification.error({
+      message: "Class canceled",
+    });
   };
 
   return (
     <List.Item>
-      <List.Item.Meta title={yogaClass.name} />
-      <h4>Time: {yogaClass.time}</h4>
-      <h4>Date: {yogaClass.date}</h4>
-      <h4>Free spots: {yogaClass.spots - yogaClass.students.length}</h4>
-      {!isBooked ? (
-        <Button
-          type="primary"
-          loading={isLoadingBooking}
-          onClick={(e) => {
-            bookClassHanlder(e, yogaClass);
-          }}
-        >
-          Book class!
-        </Button>
-      ) : (
-        <Popconfirm
-          placement="rightBottom"
-          title="Are you sure?"
-          onConfirm={(e) => cancelClassHandler(e, yogaClass)}
-        >
-          <Button type="danger">Cancel class</Button>
-        </Popconfirm>
-      )}
+      <Card bordered={false}>
+        <h2>{yogaClass.name}</h2>
+        <h4>Time: {yogaClass.time}</h4>
+        <h4>Date: {yogaClass.date}</h4>
+        <h4>Free spots: {yogaClass.spots - yogaClass.students.length}</h4>
+        {!isBooked ? (
+          <Button
+            type="primary"
+            loading={isLoadingBooking}
+            onClick={(e) => {
+              bookClassHanlder(e, yogaClass);
+            }}
+          >
+            Book class!
+          </Button>
+        ) : (
+          <Popconfirm
+            placement="rightBottom"
+            title="Are you sure?"
+            onConfirm={(e) => cancelClassHandler(e, yogaClass)}
+          >
+            <Button type="danger">Cancel class</Button>
+          </Popconfirm>
+        )}
+      </Card>
     </List.Item>
   );
 };
