@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { List, Button, Popconfirm } from "antd";
+import { List, Button, Popconfirm, notification } from "antd";
 import {
   useBookClassMutation,
   useClassesQuery,
@@ -35,6 +35,10 @@ const ClassItem = ({ yogaClass }) => {
     const students = [...yogaClass.students, user];
     const { id } = yogaClass;
     bookClass({ id, students });
+    notification.success({
+      message: "Class booked!",
+      description: `${yogaClass.name} - ${yogaClass.date} - ${yogaClass.time}`,
+    });
   };
 
   const cancelClassHandler = (e, yogaClass) => {
