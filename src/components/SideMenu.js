@@ -4,7 +4,7 @@ import userPng from "../img/logo.png";
 const SideMenu = () => {
   return (
     <>
-      <Image src={userPng} alt="book yoga calss logo" />
+      <Image src={userPng} preview={false} alt="book yoga calss logo" />
     </>
   );
 };

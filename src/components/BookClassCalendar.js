@@ -2,39 +2,7 @@ import dayjs from "dayjs";
 import { List, Calendar } from "antd";
 import BookClassModal from "./BookClassModal";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { useClassesQuery } from "../store/api";
-
-// const events = [
-//   {
-//     name: "yoga for beginners",
-//     spots: 10,
-//     students: [],
-//     date: new Date(2022, 5, 17),
-//     time: "17:00",
-//   },
-//   {
-//     name: "yoga for advanced",
-//     spots: 10,
-//     students: [],
-//     date: new Date(2022, 5, 18),
-//     time: "17:00",
-//   },
-//   {
-//     name: "yoga for back pain",
-//     spots: 10,
-//     students: [],
-//     date: new Date(2022, 5, 18),
-//     time: "18:00",
-//   },
-//   {
-//     name: "yoga vinyasa",
-//     spots: 10,
-//     students: [],
-//     date: new Date(2022, 5, 18),
-//     time: "18:00",
-//   },
-// ];
 
 const getListData = (value, events) => {
   const date = dayjs(value).format("DD-MM-YYYY");
@@ -62,7 +30,6 @@ const BookClassCalendar = () => {
             description={item.time}
             onClick={(e) => {
               setShowModal(true);
-              // setValue(item);
             }}
           />
         ))}
