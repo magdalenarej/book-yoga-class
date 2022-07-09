@@ -1,7 +1,17 @@
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Radio } from "antd";
+import { useEffect } from "react";
+import { useRegisterUserMutation } from "../store/api";
 
 const Register = () => {
-  const onFinish = (values) => console.log(values);
+  const onFinish = (values) => {
+    registerUser(values);
+  };
+
+  const [registerUser, { status, data, error }] = useRegisterUserMutation();
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <Form layout="vertical" onFinish={onFinish}>
@@ -82,6 +92,16 @@ const Register = () => {
         ]}
       >
         <Input.Password />
+      </Form.Item>
+      <Form.Item
+        name="isTeacher"
+        label="Role"
+        rules={[{ required: true, message: "Please pick your type!" }]}
+      >
+        <Radio.Group>
+          <Radio.Button value={false}>Student</Radio.Button>
+          <Radio.Button value={true}>Teacher</Radio.Button>
+        </Radio.Group>
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button">
