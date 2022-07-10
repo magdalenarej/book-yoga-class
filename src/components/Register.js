@@ -1,17 +1,29 @@
 import { Form, Input, Button, Radio } from "antd";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useRegisterUserMutation } from "../store/api";
+import { setCredentials } from "../store/userSlice";
 
 const Register = () => {
-  const onFinish = (values) => {
-    registerUser(values);
+  const [registerUser, { status, data, error }] = useRegisterUserMutation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const registerHandler = async (values) => {
+    try {
+      const response = await registerUser(values);
+      console.log(response);
+      dispatch(setCredentials(response.data));
+      navigate("/book-class");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  const [registerUser, { status, data, error }] = useRegisterUserMutation();
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  const onFinish = (values) => {
+    registerHandler(values);
+  };
 
   return (
     <Form layout="vertical" onFinish={onFinish}>

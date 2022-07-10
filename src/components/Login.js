@@ -2,17 +2,19 @@ import { useLoginUserMutation } from "../store/api";
 import { Form, Input, Button } from "antd";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../store/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [login, { isLoading, data, error }] = useLoginUserMutation();
 
-  const disptach = useDispatch();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const loginHandler = async (values) => {
     try {
-      const user = await login(values);
-      disptach(setCredentials(user));
-      // navigate("/");
+      const response = await login(values);
+      dispatch(setCredentials(response.data));
+      navigate("/book-class");
     } catch (err) {
       console.log(err);
     }
@@ -32,6 +34,7 @@ const Login = () => {
       <Form.Item
         name="email"
         label="E-mail"
+        initialValue={"jan@kowalski.pl"}
         rules={[
           {
             type: "email",
@@ -48,6 +51,7 @@ const Login = () => {
       <Form.Item
         name="password"
         label="Password"
+        initialValue={"1234567"}
         rules={[
           {
             required: true,

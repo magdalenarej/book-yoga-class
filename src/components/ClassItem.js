@@ -6,6 +6,7 @@ import {
   useCancelClassMutation,
 } from "../store/api";
 import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../store/userSlice";
 
 const ClassItem = ({ yogaClass }) => {
   const [isBooked, setIsBooked] = useState(false);
@@ -14,21 +15,26 @@ const ClassItem = ({ yogaClass }) => {
     bookClass,
     { isLoading: isLoadingBooking, isSuccess: isSuccessBooking },
   ] = useBookClassMutation();
+
   const [
     cancelClass,
     { isSuccess: isSuccessCanceling },
   ] = useCancelClassMutation();
-  const user = useSelector((state) => state.user);
+
+  const user = useSelector((state) => state.user.user);
+  console.log(user);
+  const { userdata } = selectCurrentUser;
+  console.log(userdata);
 
   useEffect(() => {
     if (!yogaClass.students.length) {
       setIsBooked(false);
     } else {
       yogaClass.students.forEach((student) =>
-        student.id !== user.id ? setIsBooked(false) : setIsBooked(true)
+        student?.id !== user?.id ? setIsBooked(false) : setIsBooked(true)
       );
     }
-  }, [data, isSuccessCanceling, isSuccessBooking]);
+  }, [data, user]);
 
   const bookClassHanlder = (e, yogaClass) => {
     e.preventDefault();

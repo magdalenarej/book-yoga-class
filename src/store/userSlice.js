@@ -9,14 +9,18 @@ export const userSlice = createSlice({
   name: "user",
   initialState: initialUser,
   reducers: {
-    setCredentials: (state, { payload: { user, token } }) => {
+    setCredentials: (state, { payload: { user, accessToken } }) => {
       state.user = user;
-      state.token = token;
+      state.token = accessToken;
+    },
+    register: (state, { payload: { user, accessToken } }) => {
+      state.user = user;
+      state.token = accessToken;
     },
   },
 });
 
-export const { setCredentials } = userSlice.actions;
+export const { setCredentials, register } = userSlice.actions;
 
 export default userSlice.reducer;
 

@@ -5,7 +5,6 @@ export const classApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:4000",
     prepareHeaders: (headers, { getState }) => {
-      // By default, if we have a token in the store, let's use that for authenticated requests
       const token = getState().user.token;
       if (token) {
         headers.set("authorization", `Bearer ${token}`);
