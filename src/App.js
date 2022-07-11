@@ -2,18 +2,18 @@ import "antd/dist/antd.css";
 import { Layout } from "antd";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BookClassCalendar from "./components/BookClassCalendar";
-import SideMenu from "./components/SideMenu";
+import MainHeader from "./components/MainHeader";
 import LoginRegisterCard from "./components/LoginRegisterCard";
 
-const { Content, Sider } = Layout;
+const { Header, Content } = Layout;
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Layout>
-        <Sider>
-          <SideMenu />
-        </Sider>
+      <Layout style={{ height: "100vh" }}>
+        <Header style={{ height: 100 }}>
+          <MainHeader />
+        </Header>
         <Content>
           <Routes>
             <Route path="/" element={<LoginRegisterCard />}></Route>
