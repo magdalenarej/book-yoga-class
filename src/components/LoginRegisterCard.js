@@ -19,7 +19,7 @@ const LoginRegisterCard = () => {
 
   return (
     <Card
-      style={{ maxWidth: 300 }}
+      style={{ maxWidth: 600, margin: "0 auto", marginTop: 32 }}
       tabList={tabList}
       activeTabKey={activeTab}
       onTabChange={(key) => {
