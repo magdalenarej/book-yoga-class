@@ -31,7 +31,11 @@ const MainHeader = () => {
         style={{ height: 100 }}
       />
       <div>
-        {user.isTeacher && <Button size="large">Add a new class!</Button>}
+        {user.isTeacher && (
+          <Button size="large" onClick={() => navigate("add-class")}>
+            Add a new class!
+          </Button>
+        )}
         {user ? (
           <Button size="large" onClick={onLogutHandler}>
             Logout

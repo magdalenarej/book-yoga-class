@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BookClassCalendar from "./components/BookClassCalendar";
 import MainHeader from "./components/MainHeader";
 import LoginRegisterCard from "./components/LoginRegisterCard";
+import AddClass from "./components/AddClass";
 
 const { Header, Content } = Layout;
 
@@ -18,6 +19,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<LoginRegisterCard />}></Route>
             <Route path="book-class" element={<BookClassCalendar />}></Route>
+            <Route path="add-class" element={<AddClass />}></Route>
           </Routes>
         </Content>
       </Layout>
