@@ -1,12 +1,19 @@
 import { Button, Image } from "antd";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../store/userSlice";
 
 import userPng from "../img/logo.png";
 
 const MainHeader = () => {
   const user = useSelector((state) => state.user.user);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const onLogutHandler = () => {
+    dispatch(logout());
+    navigate("/");
+  };
 
   return (
     <div
@@ -24,7 +31,7 @@ const MainHeader = () => {
         style={{ height: 100 }}
       />
       {user ? (
-        <Button shape="round" size="large">
+        <Button shape="round" size="large" onClick={onLogutHandler}>
           Logout
         </Button>
       ) : (

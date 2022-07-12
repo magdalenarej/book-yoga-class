@@ -17,10 +17,14 @@ export const userSlice = createSlice({
       state.user = user;
       state.token = accessToken;
     },
+    logout: (state) => {
+      state.user = null;
+      state.token = null;
+    },
   },
 });
 
-export const { setCredentials, register } = userSlice.actions;
+export const { setCredentials, register, logout } = userSlice.actions;
 
 export default userSlice.reducer;
 
