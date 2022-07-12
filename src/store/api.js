@@ -27,11 +27,18 @@ export const classApi = createApi({
       }),
       invalidatesTags: ["classes"],
     }),
-    cancelClass: builder.mutation({
+    cancelBookingClass: builder.mutation({
       query: ({ id, ...body }) => ({
         url: `classes/${id}`,
         method: "PATCH",
         body,
+      }),
+      invalidatesTags: ["classes"],
+    }),
+    cancelClass: builder.mutation({
+      query: ({ id }) => ({
+        url: `classes/${id}`,
+        method: "DELETE",
       }),
       invalidatesTags: ["classes"],
     }),
@@ -50,21 +57,14 @@ export const classApi = createApi({
         body: credentials,
       }),
     }),
-    // loginUser: builder.mutation({
-    //   query: ({ ...body }) => ({
-    //     url: "/login",
-    //     method: "POST",
-    //     body,
-    //   }),
-    //   invalidatesTags: ["user"],
-    // }),
   }),
 });
 
 export const {
   useClassesQuery,
   useBookClassMutation,
-  useCancelClassMutation,
+  useCancelBookingClassMutation,
   useRegisterUserMutation,
   useLoginUserMutation,
+  useCancelClassMutation,
 } = classApi;
