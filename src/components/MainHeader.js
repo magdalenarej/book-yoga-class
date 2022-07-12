@@ -31,7 +31,7 @@ const MainHeader = () => {
         style={{ height: 100 }}
       />
       <div>
-        {user.isTeacher && (
+        {user?.isTeacher && (
           <Button size="large" onClick={() => navigate("add-class")}>
             Add a new class!
           </Button>

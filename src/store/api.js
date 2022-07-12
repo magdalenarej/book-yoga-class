@@ -42,6 +42,14 @@ export const classApi = createApi({
       }),
       invalidatesTags: ["classes"],
     }),
+    addClass: builder.mutation({
+      query: ({ ...body }) => ({
+        url: `/classes`,
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["classes"],
+    }),
     registerUser: builder.mutation({
       query: ({ ...body }) => ({
         url: "/users",
@@ -64,6 +72,7 @@ export const {
   useClassesQuery,
   useBookClassMutation,
   useCancelBookingClassMutation,
+  useAddClassMutation,
   useRegisterUserMutation,
   useLoginUserMutation,
   useCancelClassMutation,
