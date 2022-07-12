@@ -30,15 +30,18 @@ const MainHeader = () => {
         alt="book yoga calss logo"
         style={{ height: 100 }}
       />
-      {user ? (
-        <Button shape="round" size="large" onClick={onLogutHandler}>
-          Logout
-        </Button>
-      ) : (
-        <Button shape="round" size="large" onClick={() => navigate("/")}>
-          Login or register
-        </Button>
-      )}
+      <div>
+        {user.isTeacher && <Button size="large">Add a new class!</Button>}
+        {user ? (
+          <Button size="large" onClick={onLogutHandler}>
+            Logout
+          </Button>
+        ) : (
+          <Button size="large" onClick={() => navigate("/")}>
+            Login or register
+          </Button>
+        )}
+      </div>
     </div>
   );
 };
