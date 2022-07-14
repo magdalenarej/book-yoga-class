@@ -1,6 +1,8 @@
+import { Card } from "antd";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useClassesQuery } from "../store/api";
+import ClassItem from "./ClassItem";
 
 const UsersClasses = () => {
   const userId = useSelector((state) => state.user.user?.id);
@@ -9,8 +11,8 @@ const UsersClasses = () => {
 
   const [classes, setClasses] = useState([]);
 
-  const list = [];
   useEffect(() => {
+    const list = [];
     data.forEach((yogaClass) =>
       yogaClass.students.forEach((student) => {
         if (student.id === userId) {
@@ -19,17 +21,17 @@ const UsersClasses = () => {
       })
     );
     setClasses(list);
-  }, []);
+  }, [data]);
 
   if (!data) return;
   if (!classes.length) return;
 
   return (
-    <div>
+    <Card>
       {classes.map((cls) => (
-        <li>{cls.name}</li>
+        <ClassItem yogaClass={cls} />
       ))}
-    </div>
+    </Card>
   );
 };
 
