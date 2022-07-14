@@ -7,7 +7,6 @@ import ClassItem from "./ClassItem";
 const UsersClasses = () => {
   const userId = useSelector((state) => state.user.user?.id);
   const { data, error, isLoading, isSuccess } = useClassesQuery();
-  console.log(data);
 
   const [classes, setClasses] = useState([]);
 
