@@ -119,6 +119,7 @@ const ClassItem = ({ yogaClass }) => {
           <h4>Free spots: {yogaClass.spots - yogaClass.students.length}</h4>
           {!isBooked ? (
             <Button
+              disabled={yogaClass.students.length >= yogaClass.spots}
               type="primary"
               loading={isLoadingBooking}
               onClick={(e) => {
