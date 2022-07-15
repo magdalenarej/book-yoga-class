@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import CardContainer from "../CardContainer";
 import TeachersClasses from "./TeachersClasses";
-import UsersClasses from "../UsersClasses";
+import UsersClasses from "./UsersClasses";
 
 const ClassesCard = () => {
   const user = useSelector((state) => state.user.user);

@@ -7,7 +7,7 @@ import MainHeader from "./components/MainHeader";
 import LoginRegisterCard from "./components/LoginRegisterCard";
 import AddClass from "./components/AddClass";
 import SideMenu from "./components/SideMenu";
-import UsersClasses from "./components/UsersClasses";
+import UsersClasses from "./components/Classes/UsersClasses";
 import ClassesCard from "./components/Classes/ClassesCard";
 
 const { Header, Content, Sider } = Layout;
