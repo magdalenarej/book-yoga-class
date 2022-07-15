@@ -13,7 +13,7 @@ const Register = () => {
   const registerHandler = async (values) => {
     try {
       const response = await registerUser(values);
-      console.log(response);
+
       dispatch(setCredentials(response.data));
       navigate("/book-class");
     } catch (err) {

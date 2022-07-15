@@ -24,7 +24,7 @@ const SideMenuStudent = () => {
         onClick={() => {
           navigate("/book-class");
         }}
-        style={{ fontSize: 24 }}
+        style={{ fontSize: 18 }}
       >
         Calendar
       </Menu.Item>
@@ -33,7 +33,7 @@ const SideMenuStudent = () => {
         onClick={() => {
           navigate("/my-classes");
         }}
-        style={{ fontSize: 24 }}
+        style={{ fontSize: 18 }}
       >
         My booked classes
       </Menu.Item>

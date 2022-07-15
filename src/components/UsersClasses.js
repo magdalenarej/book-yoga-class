@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useClassesQuery } from "../store/api";
 import ClassItem from "./ClassItem";
+import TeachersClasses from "./Classes/TeachersClasses";
 
 const UsersClasses = () => {
   const userId = useSelector((state) => state.user.user?.id);

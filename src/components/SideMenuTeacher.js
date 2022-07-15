@@ -25,7 +25,7 @@ const SideMenuTeacher = () => {
         onClick={() => {
           navigate("/book-class");
         }}
-        style={{ fontSize: 24 }}
+        style={{ fontSize: 18 }}
       >
         Calendar
       </Menu.Item>
@@ -34,7 +34,7 @@ const SideMenuTeacher = () => {
         onClick={() => {
           navigate("/add-class");
         }}
-        style={{ fontSize: 24 }}
+        style={{ fontSize: 18 }}
       >
         Add class
       </Menu.Item>
@@ -43,14 +43,14 @@ const SideMenuTeacher = () => {
         onClick={() => {
           navigate("/my-classes");
         }}
-        style={{ fontSize: 24 }}
+        style={{ fontSize: 18 }}
       >
         My classes
       </Menu.Item>
       <Menu.Item
         icon={<LogoutOutlined style={{ fontSize: 24 }} />}
         onClick={onLogutHandler}
-        style={{ fontSize: 24 }}
+        style={{ fontSize: 18 }}
       >
         Logout
       </Menu.Item>

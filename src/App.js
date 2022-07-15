@@ -8,11 +8,13 @@ import LoginRegisterCard from "./components/LoginRegisterCard";
 import AddClass from "./components/AddClass";
 import SideMenu from "./components/SideMenu";
 import UsersClasses from "./components/UsersClasses";
+import ClassesCard from "./components/Classes/ClassesCard";
 
 const { Header, Content, Sider } = Layout;
 
 const App = () => {
   const [collapsed, setCollapsed] = useState(true);
+
   return (
     <BrowserRouter>
       <Layout style={{ height: "100vh" }}>
@@ -21,12 +23,12 @@ const App = () => {
         </Header>
         <Layout>
           <SideMenu />
-          <Content>
+          <Content style={{ maxHeight: "100vh" - 100 }}>
             <Routes>
               <Route path="/" element={<LoginRegisterCard />}></Route>
               <Route path="book-class" element={<BookClassCalendar />}></Route>
               <Route path="add-class" element={<AddClass />}></Route>
-              <Route path="/my-classes" element={<UsersClasses />}></Route>
+              <Route path="/my-classes" element={<ClassesCard />}></Route>
             </Routes>
           </Content>
         </Layout>

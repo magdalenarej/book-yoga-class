@@ -85,7 +85,6 @@ const ClassItem = ({ yogaClass }) => {
             <Collapse ghost={true}>
               <Panel header="students:">
                 {yogaClass.students.map((student) => {
-                  console.log("student");
                   return (
                     <h4 key={student.id}>
                       {student.name} {student.surname}
