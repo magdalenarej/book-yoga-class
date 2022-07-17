@@ -1,5 +1,5 @@
-import { Form, Input, Button, Radio } from "antd";
-import { useEffect } from "react";
+import { Form, Input, Button, Radio, Alert } from "antd";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useRegisterUserMutation } from "../store/api";
@@ -9,6 +9,11 @@ const Register = () => {
   const [registerUser, { status, data, error }] = useRegisterUserMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [alertMsg, setAlertMsg] = useState(null);
+
+  useEffect(() => {
+    error ? setAlertMsg(error.data) : setAlertMsg(null);
+  }, [error]);
 
   const registerHandler = async (values) => {
     try {
@@ -29,7 +34,7 @@ const Register = () => {
     <Form layout="vertical" onFinish={onFinish}>
       <Form.Item
         name="name"
-        label="name"
+        label="Name"
         rules={[
           {
             required: true,
@@ -41,7 +46,7 @@ const Register = () => {
       </Form.Item>
       <Form.Item
         name="surname"
-        label="surname"
+        label="Surname"
         rules={[
           {
             required: true,
@@ -120,6 +125,7 @@ const Register = () => {
           Register
         </Button>
       </Form.Item>
+      {alertMsg && <Alert message={alertMsg} type="error" />}
     </Form>
   );
 };
