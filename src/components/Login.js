@@ -1,14 +1,20 @@
 import { useLoginUserMutation } from "../store/api";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Alert } from "antd";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "../store/userSlice";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Login = () => {
   const [login, { isLoading, data, error }] = useLoginUserMutation();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [alertMsg, setAlertMsg] = useState(null);
+
+  useEffect(() => {
+    error ? setAlertMsg(error.data) : setAlertMsg(null);
+  }, [error]);
 
   const loginHandler = async (values) => {
     try {
@@ -16,7 +22,7 @@ const Login = () => {
       dispatch(setCredentials(response.data));
       navigate("/book-class");
     } catch (err) {
-      console.log(err);
+      console.log(error);
     }
   };
 
@@ -63,10 +69,16 @@ const Login = () => {
         <Input.Password />
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button
+          type="primary"
+          htmlType="submit"
+          className="login-form-button"
+          loading={isLoading}
+        >
           Log in
         </Button>
       </Form.Item>
+      {alertMsg && <Alert message={alertMsg} type="error" />}
     </Form>
   );
 };
