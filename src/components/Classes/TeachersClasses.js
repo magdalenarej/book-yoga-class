@@ -9,7 +9,6 @@ const TeachersClasses = () => {
   const { data, error, isLoading, isSuccess } = useClassesQuery();
   const user = useSelector((state) => state.user.user);
   const [classes, setClasses] = useState([]);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const list = [];
@@ -18,7 +17,6 @@ const TeachersClasses = () => {
         list.push(yogaClass);
       }
     });
-    console.log(list);
     setClasses(list);
   }, [data]);
 

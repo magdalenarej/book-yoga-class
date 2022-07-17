@@ -16,7 +16,7 @@ const TeacherClass = ({ yogaClass }) => {
   return (
     <List.Item>
       <List.Item.Meta
-        title={<h3>{yogaClass.name}</h3>}
+        title={yogaClass.name}
         description={`Date: ${yogaClass.date} - Time: ${
           yogaClass.time
         } - Available spots: ${yogaClass.spots - yogaClass.students.length}`}

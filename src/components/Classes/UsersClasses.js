@@ -28,7 +28,7 @@ const UsersClasses = () => {
   return (
     <Card>
       {classes.map((cls) => (
-        <ClassItem yogaClass={cls} />
+        <ClassItem key={classes.id} yogaClass={cls} />
       ))}
     </Card>
   );
