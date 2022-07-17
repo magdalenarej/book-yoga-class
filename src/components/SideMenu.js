@@ -19,6 +19,15 @@ const SideMenu = () => {
 
   return (
     <Sider
+      style={{
+        overflow: "auto",
+        zIndex: 2000,
+        height: "100%",
+        position: "fixed",
+        left: 0,
+        top: 100,
+        bottom: 0,
+      }}
       collapsible
       collapsed={collapsed}
       onCollapse={() => setCollapsed((state) => !state)}

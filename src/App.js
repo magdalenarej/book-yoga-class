@@ -7,23 +7,28 @@ import MainHeader from "./components/MainHeader";
 import LoginRegisterCard from "./components/LoginRegisterCard";
 import AddClass from "./components/AddClass";
 import SideMenu from "./components/SideMenu";
-import UsersClasses from "./components/Classes/UsersClasses";
+
 import ClassesCard from "./components/Classes/ClassesCard";
 
-const { Header, Content, Sider } = Layout;
+const { Header, Content } = Layout;
 
 const App = () => {
-  const [collapsed, setCollapsed] = useState(true);
-
   return (
     <BrowserRouter>
-      <Layout style={{ height: "100vh" }}>
-        <Header style={{ height: 100 }}>
+      <Layout style={{ height: "100vh", overflow: "scroll" }}>
+        <Header
+          style={{
+            position: "fixed",
+            zIndex: 2000,
+            width: "100%",
+            height: 100,
+          }}
+        >
           <MainHeader />
         </Header>
-        <Layout>
+        <Layout style={{ marginTop: 100, marginLeft: 80 }}>
           <SideMenu />
-          <Content style={{ maxHeight: "100vh" - 100 }}>
+          <Content>
             <Routes>
               <Route path="/" element={<LoginRegisterCard />}></Route>
               <Route path="book-class" element={<BookClassCalendar />}></Route>
