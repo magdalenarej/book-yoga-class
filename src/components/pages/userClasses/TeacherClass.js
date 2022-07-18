@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { List, Button, Popconfirm } from "antd";
 import StudentsList from "./StudentsList";
-import { useCancelClassMutation } from "../../store/api";
+import { useCancelClassMutation } from "../../../store/api";
 
 const TeacherClass = ({ yogaClass }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,7 +14,7 @@ const TeacherClass = ({ yogaClass }) => {
   };
 
   return (
-    <List.Item>
+    <List.Item style={{ padding: 24 }}>
       <List.Item.Meta
         title={yogaClass.name}
         description={`Date: ${yogaClass.date} - Time: ${

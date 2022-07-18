@@ -1,14 +1,12 @@
 import "antd/dist/antd.css";
-import { useState } from "react";
 import { Layout } from "antd";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import BookClassCalendar from "./components/BookClassCalendar";
-import MainHeader from "./components/MainHeader";
-import LoginRegisterCard from "./components/LoginRegisterCard";
-import AddClass from "./components/AddClass";
-import SideMenu from "./components/SideMenu";
-
-import ClassesCard from "./components/Classes/ClassesCard";
+import BookClassCalendar from "./components/pages/bookClass/BookClassCalendar";
+import MainHeader from "./components/layout/MainHeader";
+import LoginRegisterCard from "./components/pages/login/LoginRegisterCard";
+import AddClass from "./components/pages/addClass/AddClass";
+import SideMenu from "./components/layout/SideMenu";
+import ClassesCard from "./components/pages/userClasses/ClassesCard";
 
 const { Header, Content } = Layout;
 

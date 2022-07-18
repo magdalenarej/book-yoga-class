@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Layout, Menu } from "antd";
+import { Layout } from "antd";
 import { useNavigate } from "react-router-dom";
 import SideMenuTeacher from "./SideMenuTeacher";
 import SideMenuStudent from "./SideMenuStudent";

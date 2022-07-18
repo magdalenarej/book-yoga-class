@@ -1,7 +1,7 @@
-import { useLoginUserMutation } from "../store/api";
+import { useLoginUserMutation } from "../../../store/api";
 import { Form, Input, Button, Alert } from "antd";
 import { useDispatch } from "react-redux";
-import { setCredentials } from "../store/userSlice";
+import { setCredentials } from "../../../store/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 

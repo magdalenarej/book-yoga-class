@@ -3,7 +3,7 @@ import { List, Result, Button } from "antd";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useClassesQuery } from "../../store/api";
+import { useClassesQuery } from "../../../store/api";
 
 import UserClass from "./UserClass";
 
@@ -32,7 +32,7 @@ const UsersClasses = () => {
     return (
       <Result
         icon={<CloseSquareOutlined />}
-        title="You didn't book any classes"
+        title="You don't have any booked classes!"
         extra={
           <Button type="primary" onClick={() => navigate("/book-class")}>
             Book class
@@ -42,7 +42,7 @@ const UsersClasses = () => {
     );
 
   return (
-    <List>
+    <List itemLayout="vertical">
       {classes.map((cls) => (
         <UserClass key={cls.id} yogaClass={cls} />
       ))}

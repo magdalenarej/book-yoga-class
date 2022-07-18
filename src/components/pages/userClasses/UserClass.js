@@ -1,7 +1,7 @@
 import { CloseCircleOutlined } from "@ant-design/icons";
 import { List, Button, Popconfirm, notification } from "antd";
 import { useSelector } from "react-redux";
-import { useCancelBookingClassMutation } from "../../store/api";
+import { useCancelBookingClassMutation } from "../../../store/api";
 
 const UserClass = ({ yogaClass }) => {
   const [
@@ -18,14 +18,15 @@ const UserClass = ({ yogaClass }) => {
     const { id } = yogaClass;
     cancelBookingClass({ id, students });
     notification.error({
-      message: "Canceled!",
+      message: "Booking canceled!",
+      placement: "bottomRight",
     });
   };
 
   return (
-    <List.Item>
+    <List.Item style={{ padding: 24 }}>
       <List.Item.Meta
-        title={yogaClass.name}
+        title={yogaClass.name.toUpperCase()}
         description={`Date: ${yogaClass.date} - Time: ${
           yogaClass.time
         } - Available spots: ${yogaClass.spots - yogaClass.students.length}`}
@@ -39,7 +40,6 @@ const UserClass = ({ yogaClass }) => {
         <Button
           type="danger"
           loading={isLoading}
-          size="small"
           icon={<CloseCircleOutlined />}
         >
           Cancel booking class!

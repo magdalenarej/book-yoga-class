@@ -1,7 +1,7 @@
 import { List, Modal } from "antd";
 import dayjs from "dayjs";
-import { useClassesQuery } from "../store/api";
-import ClassItem from "./ClassItem";
+import { useClassesQuery } from "../../../store/api";
+import ClassItem from "./YogaClass";
 
 const BookClassModal = ({ visible, classData, isVisibleHanlder }) => {
   const { data, error, isLoading, isSuccess } = useClassesQuery();

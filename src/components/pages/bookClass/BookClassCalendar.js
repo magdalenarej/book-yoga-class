@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import { List, Calendar, Alert, Button } from "antd";
 import BookClassModal from "./BookClassModal";
 import { useState } from "react";
-import { useClassesQuery } from "../store/api";
+import { useClassesQuery } from "../../../store/api";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 

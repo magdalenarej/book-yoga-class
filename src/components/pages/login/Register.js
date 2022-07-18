@@ -2,8 +2,8 @@ import { Form, Input, Button, Radio, Alert } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useRegisterUserMutation } from "../store/api";
-import { setCredentials } from "../store/userSlice";
+import { useRegisterUserMutation } from "../../../store/api"; 
+import { setCredentials } from "../../../store/userSlice"; 
 
 const Register = () => {
   const [registerUser, { status, data, error }] = useRegisterUserMutation();

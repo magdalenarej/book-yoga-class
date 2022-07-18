@@ -1,15 +1,14 @@
 import {
-  PlusCircleOutlined,
   CalendarOutlined,
   ContactsOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { logout } from "../store/userSlice";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../store/userSlice";
 
-const SideMenuTeacher = () => {
+const SideMenuStudent = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -30,22 +29,13 @@ const SideMenuTeacher = () => {
         Calendar
       </Menu.Item>
       <Menu.Item
-        icon={<PlusCircleOutlined style={{ fontSize: 24 }} />}
-        onClick={() => {
-          navigate("/add-class");
-        }}
-        style={{ fontSize: 18 }}
-      >
-        Add class
-      </Menu.Item>
-      <Menu.Item
         icon={<ContactsOutlined style={{ fontSize: 24 }} />}
         onClick={() => {
           navigate("/my-classes");
         }}
         style={{ fontSize: 18 }}
       >
-        My classes
+        My booked classes
       </Menu.Item>
       <Menu.Item
         icon={<LogoutOutlined style={{ fontSize: 24 }} />}
@@ -58,4 +48,4 @@ const SideMenuTeacher = () => {
   );
 };
 
-export default SideMenuTeacher;
+export default SideMenuStudent;

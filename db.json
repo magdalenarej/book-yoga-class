@@ -1,29 +1,12 @@
 {
   "classes": [
     {
-      "name": "yoga for advanced",
-      "spots": 10,
-      "students": [
-        {
-          "name": "Maria",
-          "surname": "Kwiatkowska",
-          "id": 10000000
-        }
-      ],
-      "date": "25-07-2022",
-      "time": "17:00",
-      "id": 1
-    },
-    {
-      "id": 2,
-      "name": "yoga for beginners",
-      "spots": 10,
-      "students": [],
-      "date": "25-07-2022",
-      "time": "17:00"
-    },
-    {
       "id": 3,
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
       "name": "yoga for pregnant women",
       "spots": 10,
       "students": [],
@@ -32,6 +15,11 @@
     },
     {
       "id": 4,
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
       "name": "yoga yin",
       "spots": 10,
       "students": [],
@@ -39,36 +27,190 @@
       "time": "17:00"
     },
     {
-      "id": 5,
-      "name": "yoga slow vinyasa",
-      "spots": 10,
+      "name": "yoga",
+      "spots": "1",
+      "date": "12-07-2022",
+      "time": "18:07",
       "students": [],
-      "date": "21-07-2022",
-      "time": "19:00"
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
+      "id": 7
     },
     {
-      "id": 6,
-      "name": "hot yoga",
-      "spots": 10,
+      "name": "yoga for beginners",
+      "spots": "15",
       "students": [],
-      "date": "21-07-2022",
-      "time": "20:00"
+      "date": "13-07-2022",
+      "time": "18:00",
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
+      "id": 10
     },
     {
-      "id": 7,
-      "name": "ashtanga vinyasa - mysore",
-      "spots": 10,
+      "name": "Yoga for runners",
+      "spots": "10",
       "students": [],
-      "date": "15-07-2022",
-      "time": "7:00"
+      "date": "17-07-2022",
+      "time": "09:00",
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
+      "id": 11
     },
     {
-      "id": 8,
-      "name": "ashtanga vinyasa - mysore",
-      "spots": 10,
+      "name": "Yoga for beginners",
+      "spots": "8",
       "students": [],
-      "date": "11-07-2022",
-      "time": "7:00"
+      "date": "24-07-2022",
+      "time": "09:00",
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
+      "id": 12
+    }
+  ],
+  "users": [
+    {
+      "name": "jan",
+      "surname": "nowak",
+      "email": "jan@jan.com",
+      "password": "123",
+      "confirm": "123",
+      "id": 1
+    },
+    {
+      "email": "jan@jan.pl",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$tr92bSGZctgNEgMwGPtabOig72o.6qJO1AkCnSBmCv0mdhbQ0QKom",
+      "id": 3
+    },
+    {
+      "email": "jan@test.com",
+      "password": "$2a$10$9nUukadMLOKapKOtbuPoKeV/ftU.hseHL0p4cy9sQei0gT1zdYHfK",
+      "name": "jan",
+      "surname": "nowak",
+      "confirm": "1234567",
+      "id": 4
+    },
+    {
+      "email": "jan@kowalski.pl",
+      "password": "$2a$10$6/x5MyHGSqoeMNZyt49/HOX3M0KyK.sxUYgQeeqbt3JWln.ez20Cm",
+      "name": "Jan",
+      "surname": "Kowalski",
+      "confirm": "1234567",
+      "id": 5
+    },
+    {
+      "email": "anna@nowak.pl",
+      "password": "$2a$10$qm57TgU7XQ39gUp6bBLgoeo/vhcrX/bm1SQyiYVRVMcPvR1j5jfvy",
+      "name": "Anna",
+      "surname": "Nowak",
+      "confirm": "1234567",
+      "id": 6
+    },
+    {
+      "email": "ala@kot.pl",
+      "password": "$2a$10$FJTBk7Gb.szKW8FggtC7Jeck5Dj4v28piAUJvdHxlNE/.gJ9lBPKS",
+      "name": "Ala",
+      "surname": "Kot",
+      "confirm": "1234567",
+      "isTeacher": false,
+      "id": 7
+    },
+    {
+      "email": "monika@zając.pl",
+      "password": "$2a$10$kTcPmr180EpcVT3ZFsOCQeRFKXJEobhG7TZsuOCsmm4MTJ/9yWslC",
+      "name": "Monika",
+      "surname": "Zając",
+      "confirm": "1234567",
+      "isTeacher": false,
+      "id": 8
+    },
+    {
+      "email": "piotr@igla.pl",
+      "password": "$2a$10$zHsxufZxqcE0oZh9dNL0reuUM85wPHPW6suAlP79UsZXecgwmywfK",
+      "name": "Piotr",
+      "surname": "Igła",
+      "confirm": "1234567",
+      "isTeacher": false,
+      "id": 9
+    },
+    {
+      "email": "anna@a.pl",
+      "password": "$2a$10$FldlBU4z50oRfFE0myK1q.ymeLWZxPyleTAnM2M3/REyCDaLUed5S",
+      "name": "Anna",
+      "surname": "Anioł",
+      "confirm": "1234567",
+      "isTeacher": false,
+      "id": 10
+    },
+    {
+      "email": "anna@anna.pl",
+      "password": "$2a$10$a95u/DQY3NN/WtpQLq6McOwjsHexqvQ/MIjgFj/TRuXqQOJmigu5.",
+      "name": "Anna",
+      "surname": "Anioł",
+      "confirm": "1234567",
+      "isTeacher": false,
+      "id": 11
+    },
+    {
+      "email": "antoni@s.pl",
+      "password": "$2a$10$ahz8oZ0.FT1oSb7ynP1TBuxNBxdZA8oaiQFL8E.R/hVtFUxdE.RDO",
+      "name": "Antoni",
+      "surname": "Sęk",
+      "confirm": "1234567",
+      "isTeacher": false,
+      "id": 12
+    },
+    {
+      "email": "anna@z.pl",
+      "password": "$2a$10$hzhP.ScgSDJH3HOrvKGMOepxx3HXjr3jZnNcsUzw9HA1qFHtfFT.K",
+      "name": "anna",
+      "surname": "zajac",
+      "confirm": "1234567",
+      "isTeacher": false,
+      "id": 13
+    },
+    {
+      "email": "bartosz@b.pl",
+      "password": "$2a$10$I/ZW/PEUUKHeHzJhcqK8s.T5eBgBItyF8LQy8ztC8Ot/P2X4NUWzG",
+      "name": "bartosz",
+      "surname": "brat",
+      "confirm": "1234567",
+      "isTeacher": false,
+      "id": 14
+    },
+    {
+      "email": "celinka@ce.pl",
+      "password": "$2a$10$gFnxaXNDp5Xi/ngKn.vuqOTMYn0qlZM0l.xPvXQ8z34EQ6hJnsh2.",
+      "name": "Celina",
+      "surname": "Cebula",
+      "confirm": "1234567",
+      "isTeacher": false,
+      "id": 15
+    },
+    {
+      "email": "alina@nowak.pl",
+      "password": "$2a$10$au/ryl.vI/y2z2vuajKffeLb74gCfSWTXDPUhqlerbC3aW4ZsCN8K",
+      "name": "Alina",
+      "surname": "Nowak",
+      "confirm": "1234567",
+      "isTeacher": true,
+      "id": 16
     }
   ]
 }

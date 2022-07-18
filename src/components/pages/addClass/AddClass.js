@@ -2,8 +2,8 @@ import { Button, DatePicker, Form, Input } from "antd";
 import dayjs from "dayjs";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useAddClassMutation } from "../store/api";
-import CardContainer from "./CardContainer";
+import { useAddClassMutation } from "../../../store/api";
+import CardContainer from "../../layout/CardContainer";
 
 const AddClass = () => {
   const [addClass] = useAddClassMutation();
@@ -39,7 +39,7 @@ const AddClass = () => {
           <Input />
         </Form.Item>
         <Form.Item
-          label="Avaible spots"
+          label="Available spots"
           name="spots"
           rules={[
             {
@@ -55,7 +55,7 @@ const AddClass = () => {
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">
-            Add new class 🧘‍♀️
+            Add new class!
           </Button>
         </Form.Item>
       </Form>

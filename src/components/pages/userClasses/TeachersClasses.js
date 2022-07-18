@@ -1,7 +1,7 @@
-import { List } from "antd";
+import { List, Result, Button } from "antd";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useClassesQuery } from "../../store/api";
+import { useClassesQuery } from "../../../store/api";
 
 import TeacherClass from "./TeacherClass";
 
@@ -19,6 +19,16 @@ const TeachersClasses = () => {
     });
     setClasses(list);
   }, [data]);
+
+  if (error) {
+    return (
+      <Result
+        status="500"
+        title="Ops!"
+        subTitle="Sorry, something went wrong."
+      />
+    );
+  }
 
   return (
     <List itemLayout="vertical" dataSource={classes}>

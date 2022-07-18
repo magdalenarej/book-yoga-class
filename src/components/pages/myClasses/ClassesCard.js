@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import CardContainer from "../CardContainer";
+import CardContainer from "../../layout/CardContainer";
 import TeachersClasses from "./TeachersClasses";
 import UsersClasses from "./UsersClasses";
 
