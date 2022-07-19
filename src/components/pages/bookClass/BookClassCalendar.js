@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useClassesQuery } from "../../../store/api";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Warning from "../../error/Warning";
+import ErrorCard from "../../error/ErrorCard";
 
 const getListData = (value, events) => {
   const date = dayjs(value).format("DD-MM-YYYY");
@@ -41,26 +43,19 @@ const BookClassCalendar = () => {
     );
   };
 
+  if(!user) {
+    return <Warning />
+  }
+
   return (
     <>
-      {isSuccess && user ? (
+      {isSuccess ? (
         <Calendar
           dateCellRender={dateCellRender}
           onSelect={(value) => setValue(value)}
         />
       ) : (
-        <Alert
-          style={{ maxWidth: 500, margin: "0 auto", marginTop: 32 }}
-          message="You must be logged in!"
-          showIcon
-          description="Please login or create new account!"
-          type="error"
-          action={
-            <Button size="small" danger onClick={() => navigate("/")}>
-              Login or register
-            </Button>
-          }
-        />
+       <ErrorCard />
       )}
       {!isLoading && (
         <BookClassModal

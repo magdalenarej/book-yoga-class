@@ -4,9 +4,11 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAddClassMutation } from "../../../store/api";
 import CardContainer from "../../layout/CardContainer";
+import Warning from "../../error/Warning";
+import ErrorCard from "../../error/ErrorCard";
 
 const AddClass = () => {
-  const [addClass] = useAddClassMutation();
+  const [addClass, {error}] = useAddClassMutation();
   const user = useSelector((state) => state.user.user);
   const navigate = useNavigate();
 
@@ -22,6 +24,14 @@ const AddClass = () => {
     addClass(newClass);
     navigate("/book-class");
   };
+
+  if (!user) {
+    return <Warning />;
+  }
+
+  if(error) {
+    return <ErrorCard />
+  }
 
   return (
     <CardContainer>

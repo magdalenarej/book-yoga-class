@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useClassesQuery } from "../../../store/api";
+import ErrorCard from "../../error/ErrorCard";
 
 import UserClass from "./UserClass";
 
@@ -27,7 +28,10 @@ const UsersClasses = () => {
     setClasses(list);
   }, [data]);
 
-  if (!data) return;
+  if (error) {
+    return <ErrorCard />;
+  }
+  
   if (!classes.length)
     return (
       <Result

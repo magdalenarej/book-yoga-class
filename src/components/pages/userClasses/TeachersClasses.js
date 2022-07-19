@@ -1,7 +1,8 @@
-import { List, Result, Button } from "antd";
+import { List, Result } from "antd";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useClassesQuery } from "../../../store/api";
+import ErrorCard from "../../error/ErrorCard";
 
 import TeacherClass from "./TeacherClass";
 
@@ -21,13 +22,7 @@ const TeachersClasses = () => {
   }, [data]);
 
   if (error) {
-    return (
-      <Result
-        status="500"
-        title="Ops!"
-        subTitle="Sorry, something went wrong."
-      />
-    );
+    return <ErrorCard />
   }
 
   return (
