@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { List, Calendar, Alert, Button } from "antd";
+import { List, Calendar } from "antd";
 import BookClassModal from "./BookClassModal";
 import { useState } from "react";
 import { useClassesQuery } from "../../../store/api";

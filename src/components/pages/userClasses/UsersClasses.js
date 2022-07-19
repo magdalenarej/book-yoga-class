@@ -10,7 +10,7 @@ import UserClass from "./UserClass";
 
 const UsersClasses = () => {
   const userId = useSelector((state) => state.user.user?.id);
-  const { data, error, isLoading, isSuccess } = useClassesQuery();
+  const { data, error } = useClassesQuery();
 
   const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ const UsersClasses = () => {
   if (error) {
     return <ErrorCard />;
   }
-  
+
   if (!classes.length)
     return (
       <Result

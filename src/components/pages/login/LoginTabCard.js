@@ -3,7 +3,7 @@ import { Card } from "antd";
 import Login from "./Login";
 import Register from "./Register";
 
-const LoginRegisterCard = () => {
+const LoginTabCard = () => {
   const [activeTab, setActiveTab] = useState("login");
 
   const onTabChange = (key) => setActiveTab(key);
@@ -31,4 +31,4 @@ const LoginRegisterCard = () => {
   );
 };
 
-export default LoginRegisterCard;
+export default LoginTabCard;

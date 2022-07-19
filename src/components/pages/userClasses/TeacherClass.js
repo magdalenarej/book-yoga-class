@@ -2,16 +2,21 @@ import { useState } from "react";
 import { List, Button, Popconfirm } from "antd";
 import StudentsList from "./StudentsList";
 import { useCancelClassMutation } from "../../../store/api";
+import ErrorCard from "../../error/ErrorCard";
 
 const TeacherClass = ({ yogaClass }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [cancelClass, { isLoading }] = useCancelClassMutation();
+  const [cancelClass, { isLoading, error }] = useCancelClassMutation();
 
   const onShowModal = () => setIsVisible((state) => !state);
   const onCancelClassHandler = () => {
     const { id } = yogaClass;
     cancelClass({ id });
   };
+
+  if (error) {
+    return <ErrorCard />;
+  }
 
   return (
     <List.Item style={{ padding: 24 }}>

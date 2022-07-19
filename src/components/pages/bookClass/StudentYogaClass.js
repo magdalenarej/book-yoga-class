@@ -9,11 +9,10 @@ import { notification, Card, Button, Popconfirm } from "antd";
 const StudentYogaClass = ({ yogaClass }) => {
   const [
     bookClass,
-    { isLoading: isLoadingBooking, isSuccess: isSuccessBooking },
+    { isLoading: isLoadingBooking },
   ] = useBookClassMutation();
   const [
     cancelBookingClass,
-    { isSuccess: isSuccessCancelBooking },
   ] = useCancelBookingClassMutation();
 
   const user = useSelector((state) => state.user.user);

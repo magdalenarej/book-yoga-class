@@ -3,7 +3,7 @@ import { Layout } from "antd";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BookClassCalendar from "./components/pages/bookClass/BookClassCalendar";
 import MainHeader from "./components/layout/MainHeader";
-import LoginRegisterCard from "./components/pages/login/LoginRegisterCard";
+import LoginTabCard from "./components/pages/login/LoginTabCard";
 import AddClass from "./components/pages/addClass/AddClass";
 import SideMenu from "./components/layout/SideMenu";
 import ClassesCard from "./components/pages/userClasses/ClassesCard";
@@ -28,7 +28,7 @@ const App = () => {
           <SideMenu />
           <Content>
             <Routes>
-              <Route path="/" element={<LoginRegisterCard />}></Route>
+              <Route path="/" element={<LoginTabCard />}></Route>
               <Route path="book-class" element={<BookClassCalendar />}></Route>
               <Route path="add-class" element={<AddClass />}></Route>
               <Route path="/my-classes" element={<ClassesCard />}></Route>

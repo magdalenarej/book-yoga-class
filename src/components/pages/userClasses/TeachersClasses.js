@@ -1,4 +1,4 @@
-import { List, Result } from "antd";
+import { List } from "antd";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useClassesQuery } from "../../../store/api";
@@ -7,7 +7,7 @@ import ErrorCard from "../../error/ErrorCard";
 import TeacherClass from "./TeacherClass";
 
 const TeachersClasses = () => {
-  const { data, error, isLoading, isSuccess } = useClassesQuery();
+  const { data, error } = useClassesQuery();
   const user = useSelector((state) => state.user.user);
   const [classes, setClasses] = useState([]);
 

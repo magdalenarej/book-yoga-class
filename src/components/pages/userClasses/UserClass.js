@@ -2,6 +2,7 @@ import { CloseCircleOutlined } from "@ant-design/icons";
 import { List, Button, Popconfirm, notification } from "antd";
 import { useSelector } from "react-redux";
 import { useCancelBookingClassMutation } from "../../../store/api";
+import ErrorCard from "../../error/ErrorCard";
 
 const UserClass = ({ yogaClass }) => {
   const [
@@ -22,6 +23,10 @@ const UserClass = ({ yogaClass }) => {
       placement: "bottomRight",
     });
   };
+
+  if (error) {
+    return <ErrorCard />;
+  }
 
   return (
     <List.Item style={{ padding: 24 }}>

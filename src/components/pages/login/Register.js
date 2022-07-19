@@ -6,7 +6,7 @@ import { useRegisterUserMutation } from "../../../store/api";
 import { setCredentials } from "../../../store/userSlice"; 
 
 const Register = () => {
-  const [registerUser, { status, data, error }] = useRegisterUserMutation();
+  const [registerUser, { error }] = useRegisterUserMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [alertMsg, setAlertMsg] = useState(null);
