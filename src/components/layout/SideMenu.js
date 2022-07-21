@@ -24,6 +24,75 @@ const SideMenu = () => {
     navigate("/");
   };
 
+  const itemsTeacher = [
+    {
+      key: 1,
+      label: "Calendar",
+      onClick: () => {
+        navigate("/book-class");
+      },
+      icon: <CalendarOutlined style={{ fontSize: 24 }} />,
+      style: { fontSize: 18 },
+    },
+    {
+      key: 2,
+      label: "Add class",
+      onClick: () => {
+        navigate("/add-class");
+      },
+      icon: <PlusCircleOutlined style={{ fontSize: 24 }} />,
+      style: { fontSize: 18 },
+    },
+    {
+      key: 3,
+      label: "My classes",
+      onClick: () => {
+        navigate("/my-classes");
+      },
+      icon: <ContactsOutlined style={{ fontSize: 24 }} />,
+      style: { fontSize: 18 },
+    },
+    {
+      key: 4,
+      label: "Logout",
+      onClick: () => {
+        onLogutHandler();
+      },
+      icon: <LogoutOutlined style={{ fontSize: 24 }} />,
+      style: { fontSize: 18 },
+    },
+  ];
+
+  const itemsStudent = [
+    {
+      key: 1,
+      label: "Calendar",
+      onClick: () => {
+        navigate("/book-class");
+      },
+      icon: <CalendarOutlined style={{ fontSize: 24 }} />,
+      style: { fontSize: 18 },
+    },
+    {
+      key: 2,
+      label: "Add class",
+      onClick: () => {
+        navigate("/add-class");
+      },
+      icon: <PlusCircleOutlined style={{ fontSize: 24 }} />,
+      style: { fontSize: 18 },
+    },
+    {
+      key: 3,
+      label: "Logout",
+      onClick: () => {
+        onLogutHandler();
+      },
+      icon: <LogoutOutlined style={{ fontSize: 24 }} />,
+      style: { fontSize: 18 },
+    },
+  ];
+
   if (!user) {
     return;
   }
@@ -43,45 +112,7 @@ const SideMenu = () => {
       collapsed={collapsed}
       onCollapse={() => setCollapsed((state) => !state)}
     >
-      <Menu theme="dark">
-        <Menu.Item
-          icon={<CalendarOutlined style={{ fontSize: 24 }} />}
-          onClick={() => {
-            navigate("/book-class");
-          }}
-          style={{ fontSize: 18 }}
-        >
-          Calendar
-        </Menu.Item>
-
-        {user.isTeacher && (
-          <Menu.Item
-            icon={<PlusCircleOutlined style={{ fontSize: 24 }} />}
-            onClick={() => {
-              navigate("/add-class");
-            }}
-            style={{ fontSize: 18 }}
-          >
-            Add class
-          </Menu.Item>
-        )}
-        <Menu.Item
-          icon={<ContactsOutlined style={{ fontSize: 24 }} />}
-          onClick={() => {
-            navigate("/my-classes");
-          }}
-          style={{ fontSize: 18 }}
-        >
-          My classes
-        </Menu.Item>
-        <Menu.Item
-          icon={<LogoutOutlined style={{ fontSize: 24 }} />}
-          onClick={onLogutHandler}
-          style={{ fontSize: 18 }}
-        >
-          Logout
-        </Menu.Item>
-      </Menu>
+      <Menu theme="dark" items={user.isTeacher ? itemsTeacher : itemsStudent} />
     </Sider>
   );
 };
