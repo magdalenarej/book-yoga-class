@@ -30,7 +30,7 @@ const TeacherYogaClass = ({ yogaClass }) => {
         Date - {yogaClass.date} - Time: {yogaClass.time} - Free spots:{" "}
         {yogaClass.spots - yogaClass.students.length}
       </h4>
-      {!!yogaClass.students.length && (
+      {(!!yogaClass.students.length && isTeacherClass) && (
         <Collapse ghost={true} style={{ padding: 8, marginBottom: 8 }}>
           <Panel header="students:">
             {yogaClass.students.map((student) => {
