@@ -28,6 +28,7 @@ const MainHeader = () => {
         preview={false}
         alt="book yoga calss logo"
         style={{ height: 100 }}
+        onClick={() => navigate("/book-class")}
       />
 
       <div>

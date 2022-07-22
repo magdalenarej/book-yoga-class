@@ -75,11 +75,11 @@ const SideMenu = () => {
     },
     {
       key: 2,
-      label: "Add class",
+      label: "My classes",
       onClick: () => {
-        navigate("/add-class");
+        navigate("/my-classes");
       },
-      icon: <PlusCircleOutlined style={{ fontSize: 24 }} />,
+      icon: <ContactsOutlined style={{ fontSize: 24 }} />,
       style: { fontSize: 18 },
     },
     {

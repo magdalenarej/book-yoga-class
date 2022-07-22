@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useClassesQuery } from "../../../store/api";
 import ErrorCard from "../../error/ErrorCard";
+import Warning from "../../error/Warning";
 
 import UserClass from "./UserClass";
 
@@ -46,11 +47,11 @@ const UsersClasses = () => {
     );
 
   return (
-    <List itemLayout="vertical">
-      {classes.map((cls) => (
-        <UserClass key={cls.id} yogaClass={cls} />
-      ))}
-    </List>
+    <List
+      itemLayout="vertical"
+      dataSource={classes}
+      renderItem={(cls) => <UserClass key={cls.id} yogaClass={cls} />}
+    />
   );
 };
 

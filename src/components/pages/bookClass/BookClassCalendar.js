@@ -4,25 +4,24 @@ import BookClassModal from "./BookClassModal";
 import { useState } from "react";
 import { useClassesQuery } from "../../../store/api";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Warning from "../../error/Warning";
 import ErrorCard from "../../error/ErrorCard";
+import CardContainer from "../../layout/CardContainer";
 
 const getListData = (value, events) => {
   const date = dayjs(value).format("DD-MM-YYYY");
-  const listData = events.filter((item) => {
+  const listData = events?.filter((item) => {
     return date === item.date;
   });
   return listData;
 };
 
 const BookClassCalendar = () => {
-  const { data, error, isLoading, isSuccess } = useClassesQuery();
+  const { data, isError, isSuccess } = useClassesQuery();
 
   const [showModal, setShowModal] = useState(false);
   const [value, setValue] = useState("");
   const user = useSelector((state) => state.user.user);
-  const navigate = useNavigate();
 
   const dateCellRender = (value) => {
     const listData = getListData(value, data);
@@ -43,28 +42,32 @@ const BookClassCalendar = () => {
     );
   };
 
-  if(!user) {
-    return <Warning />
+  if (!user) {
+    return <Warning />;
+  }
+
+  if (isError) {
+    return (
+      <CardContainer>
+        <ErrorCard />
+      </CardContainer>
+    );
   }
 
   return (
-    <>
-      {isSuccess ? (
+    isSuccess && (
+      <>
         <Calendar
           dateCellRender={dateCellRender}
           onSelect={(value) => setValue(value)}
         />
-      ) : (
-       <ErrorCard />
-      )}
-      {!isLoading && (
         <BookClassModal
           visible={showModal}
           classData={value}
           isVisibleHanlder={setShowModal}
         />
-      )}
-    </>
+      </>
+    )
   );
 };
 

@@ -2,9 +2,9 @@ import { List, Modal } from "antd";
 import dayjs from "dayjs";
 import { useClassesQuery } from "../../../store/api";
 import ErrorCard from "../../error/ErrorCard";
-import ClassItem from "./YogaClass";
+import YogaClass from "./YogaClass";
 
-const BookClassModal = ({ visible, classData, isVisibleHanlder }) => {
+const BookClassModal = ({ visible, classData, isVisibleHanlder,  }) => {
   const { data, error } = useClassesQuery();
 
   const list = data.filter((el) => {
@@ -25,7 +25,7 @@ const BookClassModal = ({ visible, classData, isVisibleHanlder }) => {
     >
       <List itemLayout={"vertical"}>
         {list.map((el) => (
-          <ClassItem key={el.id} yogaClass={el} />
+          <YogaClass key={el.id} yogaClass={el}  />
         ))}
       </List>
     </Modal>

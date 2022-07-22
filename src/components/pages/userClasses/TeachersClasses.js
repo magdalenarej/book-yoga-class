@@ -22,15 +22,15 @@ const TeachersClasses = () => {
   }, [data]);
 
   if (error) {
-    return <ErrorCard />
+    return <ErrorCard />;
   }
 
   return (
-    <List itemLayout="vertical" dataSource={classes}>
-      {classes.map((yogaClass) => (
-        <TeacherClass key={yogaClass.id} yogaClass={yogaClass} />
-      ))}
-    </List>
+    <List
+      itemLayout="vertical"
+      dataSource={classes}
+      renderItem={(cls) => <TeacherClass key={cls.id} yogaClass={cls} />}
+    />
   );
 };
 

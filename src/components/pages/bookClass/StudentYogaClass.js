@@ -9,10 +9,11 @@ import { notification, Card, Button, Popconfirm } from "antd";
 const StudentYogaClass = ({ yogaClass }) => {
   const [
     bookClass,
-    { isLoading: isLoadingBooking },
+    { isLoading: isLoadingBooking, isSuccess: isSuccessBooking },
   ] = useBookClassMutation();
   const [
     cancelBookingClass,
+    { error: cancelError },
   ] = useCancelBookingClassMutation();
 
   const user = useSelector((state) => state.user.user);
@@ -38,6 +39,7 @@ const StudentYogaClass = ({ yogaClass }) => {
       description: `${yogaClass.name} - ${yogaClass.date} - ${yogaClass.time}`,
       placement: "bottomRight",
     });
+   
   };
 
   const cancelBookingHandler = () => {
@@ -46,10 +48,14 @@ const StudentYogaClass = ({ yogaClass }) => {
     );
     const { id } = yogaClass;
     cancelBookingClass({ id, students });
-    notification.error({
-      message: "Canceled!",
-      placement: "bottomRight",
-    });
+    console.log(useCancelBookingClassMutation);
+    if (!cancelError) {
+      notification.error({
+        message: "Canceled!",
+        placement: "bottomRight",
+      });
+    }
+   
   };
 
   return (

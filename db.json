@@ -1,19 +1,6 @@
 {
   "classes": [
     {
-      "id": 3,
-      "teacher": {
-        "name": "Alina",
-        "surname": "Nowak",
-        "id": 16
-      },
-      "name": "yoga for pregnant women",
-      "spots": 10,
-      "students": [],
-      "date": "25-07-2022",
-      "time": "17:00"
-    },
-    {
       "id": 4,
       "teacher": {
         "name": "Alina",
@@ -31,7 +18,15 @@
       "spots": "1",
       "date": "12-07-2022",
       "time": "18:07",
-      "students": [],
+      "students": [
+        {
+          "email": "jan@kowalski.pl",
+          "name": "Jan",
+          "surname": "Kowalski",
+          "confirm": "1234567",
+          "id": 5
+        }
+      ],
       "teacher": {
         "name": "Alina",
         "surname": "Nowak",
@@ -42,7 +37,15 @@
     {
       "name": "yoga for beginners",
       "spots": "15",
-      "students": [],
+      "students": [
+        {
+          "email": "jan@kowalski.pl",
+          "name": "Jan",
+          "surname": "Kowalski",
+          "confirm": "1234567",
+          "id": 5
+        }
+      ],
       "date": "13-07-2022",
       "time": "18:00",
       "teacher": {
@@ -55,7 +58,15 @@
     {
       "name": "Yoga for runners",
       "spots": "10",
-      "students": [],
+      "students": [
+        {
+          "email": "jan@kowalski.pl",
+          "name": "Jan",
+          "surname": "Kowalski",
+          "confirm": "1234567",
+          "id": 5
+        }
+      ],
       "date": "17-07-2022",
       "time": "09:00",
       "teacher": {
@@ -68,7 +79,15 @@
     {
       "name": "Yoga for beginners",
       "spots": "8",
-      "students": [],
+      "students": [
+        {
+          "email": "jan@kowalski.pl",
+          "name": "Jan",
+          "surname": "Kowalski",
+          "confirm": "1234567",
+          "id": 5
+        }
+      ],
       "date": "24-07-2022",
       "time": "09:00",
       "teacher": {
@@ -77,6 +96,45 @@
         "id": 16
       },
       "id": 12
+    },
+    {
+      "name": "Yoga bikram ",
+      "spots": "5",
+      "students": [],
+      "date": "30-07-2022",
+      "time": "05:00",
+      "teacher": {
+        "name": "Zygfryd",
+        "surname": "Wąż",
+        "id": 17
+      },
+      "id": 13
+    },
+    {
+      "name": "Yoga for seniors",
+      "spots": "5",
+      "students": [],
+      "date": "28-07-2022",
+      "time": "08:00",
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
+      "id": 14
+    },
+    {
+      "name": "Ashtanga vinyasa - led classes",
+      "spots": "15",
+      "students": [],
+      "date": "22-07-2022",
+      "time": "06:00",
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
+      "id": 15
     }
   ],
   "users": [
@@ -211,6 +269,15 @@
       "confirm": "1234567",
       "isTeacher": true,
       "id": 16
+    },
+    {
+      "email": "zyg@w.pl",
+      "password": "$2a$10$0I0nk/skHk8gp7viwJED1Okb6hgV2hQ1SKs8WeAxqpJhEryWxDX/G",
+      "name": "Zygfryd",
+      "surname": "Wąż",
+      "confirm": "1234567",
+      "isTeacher": true,
+      "id": 17
     }
   ]
 }

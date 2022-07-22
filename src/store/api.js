@@ -18,6 +18,7 @@ export const classApi = createApi({
     classes: builder.query({
       query: () => "/classes",
       providesTags: ["classes"],
+      
     }),
     bookClass: builder.mutation({
       query: ({ id, ...body }) => ({
@@ -64,6 +65,7 @@ export const classApi = createApi({
         method: "POST",
         body: credentials,
       }),
+      invalidatesTags: ["classes"],
     }),
   }),
 });

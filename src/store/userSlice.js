@@ -12,6 +12,7 @@ export const userSlice = createSlice({
     setCredentials: (state, { payload: { user, accessToken } }) => {
       state.user = user;
       state.token = accessToken;
+      
     },
     register: (state, { payload: { user, accessToken } }) => {
       state.user = user;
