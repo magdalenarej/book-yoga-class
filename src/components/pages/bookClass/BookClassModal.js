@@ -1,10 +1,10 @@
-import { List, Modal } from "antd";
 import dayjs from "dayjs";
+import { List, Modal } from "antd";
 import { useClassesQuery } from "../../../store/api";
 import ErrorCard from "../../error/ErrorCard";
 import YogaClass from "./YogaClass";
 
-const BookClassModal = ({ visible, classData, isVisibleHanlder,  }) => {
+const BookClassModal = ({ visible, classData, isVisibleHanlder }) => {
   const { data, error } = useClassesQuery();
 
   const list = data.filter((el) => {
@@ -15,19 +15,21 @@ const BookClassModal = ({ visible, classData, isVisibleHanlder,  }) => {
     return <ErrorCard />;
   }
 
+  if (!list.length) return null;
+
   return (
     <Modal
       footer={null}
       visible={visible}
-      onCancel={() => {
-        isVisibleHanlder();
-      }}
+      onCancel={() => isVisibleHanlder()}
     >
-      <List itemLayout={"vertical"}>
-        {list.map((el) => (
-          <YogaClass key={el.id} yogaClass={el}  />
-        ))}
-      </List>
+      <List
+        itemLayout={"vertical"}
+        dataSource={list}
+        renderItem={(yogaClass) => (
+          <YogaClass key={yogaClass.id} yogaClass={yogaClass} />
+        )}
+      />
     </Modal>
   );
 };

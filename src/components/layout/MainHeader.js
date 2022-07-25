@@ -2,7 +2,7 @@ import { Button, Image } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../store/userSlice";
-import userPng from '../../assets/logo.png'
+import userPng from "../../assets/logo.png";
 
 const MainHeader = () => {
   const user = useSelector((state) => state.user.user);
@@ -28,7 +28,7 @@ const MainHeader = () => {
         preview={false}
         alt="book yoga calss logo"
         style={{ height: 100 }}
-        onClick={() => navigate("/book-class")}
+        onClick={() => navigate("/")}
       />
 
       <div>

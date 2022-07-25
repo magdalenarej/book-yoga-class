@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { List, Button, Popconfirm } from "antd";
-import StudentsList from "./StudentsList";
 import { useCancelClassMutation } from "../../../store/api";
+import StudentsList from "./StudentsList";
 import ErrorCard from "../../error/ErrorCard";
 
 const TeacherClass = ({ yogaClass }) => {

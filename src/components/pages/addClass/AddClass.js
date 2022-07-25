@@ -1,5 +1,5 @@
-import { Button, DatePicker, Form, Input } from "antd";
 import dayjs from "dayjs";
+import { Button, DatePicker, Form, Input } from "antd";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAddClassMutation } from "../../../store/api";
@@ -8,7 +8,7 @@ import Warning from "../../error/Warning";
 import ErrorCard from "../../error/ErrorCard";
 
 const AddClass = () => {
-  const [addClass, {error}] = useAddClassMutation();
+  const [addClass, { error, isLoading }] = useAddClassMutation();
   const user = useSelector((state) => state.user.user);
   const navigate = useNavigate();
 
@@ -29,8 +29,8 @@ const AddClass = () => {
     return <Warning />;
   }
 
-  if(error) {
-    return <ErrorCard />
+  if (error) {
+    return <ErrorCard />;
   }
 
   return (
@@ -64,7 +64,7 @@ const AddClass = () => {
           <DatePicker format="DD-MM-YYYY HH:mm" showTime={true} />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" loading={isLoading}>
             Add new class!
           </Button>
         </Form.Item>

@@ -31,7 +31,7 @@ const App = () => {
               <Route path="/" element={<LoginTabCard />}></Route>
               <Route path="book-class" element={<BookClassCalendar />}></Route>
               <Route path="add-class" element={<AddClass />}></Route>
-              <Route path="/my-classes" element={<ClassesCard />}></Route>
+              <Route path="my-classes" element={<ClassesCard />}></Route>
             </Routes>
           </Content>
         </Layout>

@@ -1,14 +1,9 @@
 import { useState } from "react";
 import { Layout, Menu } from "antd";
-import {
-  PlusCircleOutlined,
-  CalendarOutlined,
-  ContactsOutlined,
-  LogoutOutlined,
-} from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../store/userSlice";
+import { itemsTeacher, itemsStudent } from "./MenuItems";
 
 const { Sider } = Layout;
 
@@ -24,78 +19,7 @@ const SideMenu = () => {
     navigate("/");
   };
 
-  const itemsTeacher = [
-    {
-      key: 1,
-      label: "Calendar",
-      onClick: () => {
-        navigate("/book-class");
-      },
-      icon: <CalendarOutlined style={{ fontSize: 24 }} />,
-      style: { fontSize: 18 },
-    },
-    {
-      key: 2,
-      label: "Add class",
-      onClick: () => {
-        navigate("/add-class");
-      },
-      icon: <PlusCircleOutlined style={{ fontSize: 24 }} />,
-      style: { fontSize: 18 },
-    },
-    {
-      key: 3,
-      label: "My classes",
-      onClick: () => {
-        navigate("/my-classes");
-      },
-      icon: <ContactsOutlined style={{ fontSize: 24 }} />,
-      style: { fontSize: 18 },
-    },
-    {
-      key: 4,
-      label: "Logout",
-      onClick: () => {
-        onLogutHandler();
-      },
-      icon: <LogoutOutlined style={{ fontSize: 24 }} />,
-      style: { fontSize: 18 },
-    },
-  ];
-
-  const itemsStudent = [
-    {
-      key: 1,
-      label: "Calendar",
-      onClick: () => {
-        navigate("/book-class");
-      },
-      icon: <CalendarOutlined style={{ fontSize: 24 }} />,
-      style: { fontSize: 18 },
-    },
-    {
-      key: 2,
-      label: "My classes",
-      onClick: () => {
-        navigate("/my-classes");
-      },
-      icon: <ContactsOutlined style={{ fontSize: 24 }} />,
-      style: { fontSize: 18 },
-    },
-    {
-      key: 3,
-      label: "Logout",
-      onClick: () => {
-        onLogutHandler();
-      },
-      icon: <LogoutOutlined style={{ fontSize: 24 }} />,
-      style: { fontSize: 18 },
-    },
-  ];
-
-  if (!user) {
-    return;
-  }
+  if (!user) return;
 
   return (
     <Sider
@@ -112,7 +36,14 @@ const SideMenu = () => {
       collapsed={collapsed}
       onCollapse={() => setCollapsed((state) => !state)}
     >
-      <Menu theme="dark" items={user.isTeacher ? itemsTeacher : itemsStudent} />
+      <Menu
+        theme="dark"
+        items={
+          user.isTeacher
+            ? itemsTeacher(navigate, onLogutHandler)
+            : itemsStudent(navigate, onLogutHandler)
+        }
+      />
     </Sider>
   );
 };

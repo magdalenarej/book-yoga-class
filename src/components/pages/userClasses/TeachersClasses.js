@@ -12,14 +12,11 @@ const TeachersClasses = () => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    const list = [];
-    data.forEach((yogaClass) => {
-      if (yogaClass.teacher.id === user.id) {
-        list.push(yogaClass);
-      }
+    const list = data.filter((yogaClass) => {
+      return yogaClass.teacher.id === user.id
     });
     setClasses(list);
-  }, [data]);
+  }, [data, user.id]);
 
   if (error) {
     return <ErrorCard />;

@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 import { List, Calendar } from "antd";
-import BookClassModal from "./BookClassModal";
 import { useState } from "react";
 import { useClassesQuery } from "../../../store/api";
 import { useSelector } from "react-redux";
+import BookClassModal from "./BookClassModal";
 import Warning from "../../error/Warning";
 import ErrorCard from "../../error/ErrorCard";
 import CardContainer from "../../layout/CardContainer";
@@ -25,7 +25,6 @@ const BookClassCalendar = () => {
 
   const dateCellRender = (value) => {
     const listData = getListData(value, data);
-
     return (
       <List>
         {listData.map((item) => (

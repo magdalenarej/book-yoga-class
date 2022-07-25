@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Login = () => {
-  const [login, { isLoading, data, error }] = useLoginUserMutation();
+  const [login, { isLoading, error }] = useLoginUserMutation();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,16 +31,10 @@ const Login = () => {
   };
 
   return (
-    <Form
-      layout="vertical"
-      onFinish={(values) => {
-        onFinish(values);
-      }}
-    >
+    <Form layout="vertical" onFinish={(values) => onFinish(values)}>
       <Form.Item
         name="email"
         label="E-mail"
-        initialValue={"jan@kowalski.pl"}
         rules={[
           {
             type: "email",
@@ -57,7 +51,6 @@ const Login = () => {
       <Form.Item
         name="password"
         label="Password"
-        initialValue={"1234567"}
         rules={[
           {
             required: true,

@@ -1,21 +1,43 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useCancelClassMutation } from "../../../store/api";
-import { Card, Button, Collapse, Popconfirm } from "antd";
+import {
+  Card,
+  Button,
+  Collapse,
+  Popconfirm,
+  notification,
+  Typography,
+} from "antd";
 import CardContainer from "../../layout/CardContainer";
 import ErrorCard from "../../error/ErrorCard";
+
 const { Panel } = Collapse;
+const { Title, Text, Paragraph } = Typography;
+
 
 const TeacherYogaClass = ({ yogaClass }) => {
   const user = useSelector((state) => state.user.user);
-  const [cancelClass, { isLoading, error }] = useCancelClassMutation();
+  const [
+    cancelClass,
+    { isLoading, isSuccess, error },
+  ] = useCancelClassMutation();
   const [isTeacherClass, setIsTeacherClass] = useState(false);
 
   useEffect(() => {
     if (yogaClass.teacher.id === user.id) {
       setIsTeacherClass(true);
     }
-  }, [user]);
+  }, [user, yogaClass.teacher.id]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      notification.error({
+        message: "Canceled!",
+        placement: "bottomRight",
+      });
+    }
+  }, [isSuccess]);
 
   const onCancelClassHandler = () => {
     const { id } = yogaClass;
@@ -32,22 +54,22 @@ const TeacherYogaClass = ({ yogaClass }) => {
 
   return (
     <Card bordered={false}>
-      <h2>{yogaClass.name}</h2>
-      <h4>
+      <Title level={4}>{yogaClass.name}</Title>
+      <Text type="secondary">
         Teacher: {yogaClass.teacher.name} {yogaClass.teacher.surname}
-      </h4>
-      <h4>
+      </Text>
+      <Paragraph>
         Date - {yogaClass.date} - Time: {yogaClass.time} - Free spots:{" "}
         {yogaClass.spots - yogaClass.students.length}
-      </h4>
+      </Paragraph>
       {!!yogaClass.students.length && isTeacherClass && (
-        <Collapse ghost={true} style={{ padding: 8, marginBottom: 8 }}>
+        <Collapse ghost={true} style={{ marginBottom: 8 }}>
           <Panel header="students:">
             {yogaClass.students.map((student) => {
               return (
-                <h4 key={student.id}>
+                <Text key={student.id}>
                   {student.name} {student.surname}
-                </h4>
+                </Text>
               );
             })}
           </Panel>

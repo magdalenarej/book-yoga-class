@@ -4,7 +4,10 @@ import {
   useBookClassMutation,
   useCancelBookingClassMutation,
 } from "../../../store/api";
-import { notification, Card, Button, Popconfirm } from "antd";
+import { notification, Card, Button, Popconfirm, Typography } from "antd";
+
+const { Title, Text, Paragraph } = Typography;
+
 
 const StudentYogaClass = ({ yogaClass }) => {
   const [
@@ -13,7 +16,7 @@ const StudentYogaClass = ({ yogaClass }) => {
   ] = useBookClassMutation();
   const [
     cancelBookingClass,
-    { error: cancelError },
+    { isSuccess: isSuccessCanceling, isLoading: isLoadingCanceling },
   ] = useCancelBookingClassMutation();
 
   const user = useSelector((state) => state.user.user);
@@ -30,16 +33,29 @@ const StudentYogaClass = ({ yogaClass }) => {
     }
   }, [yogaClass, user]);
 
+  useEffect(() => {
+    if (isSuccessBooking) {
+      notification.success({
+        message: "Class booked!",
+        description: `${yogaClass.name} - ${yogaClass.date} - ${yogaClass.time}`,
+        placement: "bottomRight",
+      });
+    }
+  }, [isSuccessBooking, yogaClass]);
+
+  useEffect(() => {
+    if (isSuccessCanceling) {
+      notification.error({
+        message: "Canceled!",
+        placement: "bottomRight",
+      });
+    }
+  }, [isSuccessCanceling]);
+
   const bookClassHanlder = () => {
     const students = [...yogaClass.students, user];
     const { id } = yogaClass;
     bookClass({ id, students });
-    notification.success({
-      message: "Class booked!",
-      description: `${yogaClass.name} - ${yogaClass.date} - ${yogaClass.time}`,
-      placement: "bottomRight",
-    });
-   
   };
 
   const cancelBookingHandler = () => {
@@ -48,25 +64,18 @@ const StudentYogaClass = ({ yogaClass }) => {
     );
     const { id } = yogaClass;
     cancelBookingClass({ id, students });
-    console.log(useCancelBookingClassMutation);
-    if (!cancelError) {
-      notification.error({
-        message: "Canceled!",
-        placement: "bottomRight",
-      });
-    }
-   
   };
 
   return (
     <Card bordered={false}>
-      <h2>{yogaClass.name}</h2>
-      <h4>
+      <Title level={4}>{yogaClass.name}</Title>
+      <Text type="secondary">
         Teacher: {yogaClass.teacher?.name} {yogaClass.teacher?.surname}
-      </h4>
-      <h4>Time: {yogaClass.time}</h4>
-      <h4>Date: {yogaClass.date}</h4>
-      <h4>Free spots: {yogaClass.spots - yogaClass.students.length}</h4>
+      </Text>
+      <Paragraph type="strong">
+        Time: {yogaClass.time} - Date: {yogaClass.date} - Free spots:{" "}
+        {yogaClass.spots - yogaClass.students.length}
+      </Paragraph>
       {!isBooked ? (
         <Button
           disabled={yogaClass.students.length >= yogaClass.spots}
@@ -84,7 +93,9 @@ const StudentYogaClass = ({ yogaClass }) => {
           title="Are you sure?"
           onConfirm={(e) => cancelBookingHandler(e, yogaClass)}
         >
-          <Button type="danger">Cancel booking</Button>
+          <Button type="danger" loading={isLoadingCanceling}>
+            Cancel booking
+          </Button>
         </Popconfirm>
       )}
     </Card>

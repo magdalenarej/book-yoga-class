@@ -1,4 +1,5 @@
-import { Modal } from "antd";
+import { Modal, Typography } from "antd";
+const { Text } = Typography;
 
 const StudentsList = ({ students, isVisible, onShowModal }) => {
   return (
@@ -9,9 +10,9 @@ const StudentsList = ({ students, isVisible, onShowModal }) => {
       onCancel={onShowModal}
     >
       {students.map((student) => (
-        <h4 key={student.id}>
-          {student.name} {student.surname}{" "}
-        </h4>
+        <Text key={student.id}>
+          {student.name} {student.surname}
+        </Text>
       ))}
     </Modal>
   );

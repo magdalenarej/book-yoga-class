@@ -1,5 +1,4 @@
 import { Result } from "antd";
-import CardContainer from "../layout/CardContainer";
 
 const ErrorCard = () => {
   return (

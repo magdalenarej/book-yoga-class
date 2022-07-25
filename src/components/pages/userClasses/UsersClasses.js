@@ -5,8 +5,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useClassesQuery } from "../../../store/api";
 import ErrorCard from "../../error/ErrorCard";
-import Warning from "../../error/Warning";
-
 import UserClass from "./UserClass";
 
 const UsersClasses = () => {
@@ -27,7 +25,7 @@ const UsersClasses = () => {
       })
     );
     setClasses(list);
-  }, [data]);
+  }, [data, userId]);
 
   if (error) {
     return <ErrorCard />;

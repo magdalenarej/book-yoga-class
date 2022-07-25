@@ -28,10 +28,12 @@ const UserClass = ({ yogaClass }) => {
     return <ErrorCard />;
   }
 
+  if (!yogaClass) return null;
+
   return (
     <List.Item style={{ padding: 24 }}>
       <List.Item.Meta
-        title={yogaClass.name.toUpperCase()}
+        title={yogaClass.name}
         description={`Date: ${yogaClass.date} - Time: ${
           yogaClass.time
         } - Available spots: ${yogaClass.spots - yogaClass.students.length}`}
