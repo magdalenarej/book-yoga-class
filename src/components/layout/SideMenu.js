@@ -3,9 +3,19 @@ import { Layout, Menu } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../store/userSlice";
-import { itemsTeacher, itemsStudent } from "./MenuItems";
+import { createMenuItemsTeacher, createMenuItemsStudent } from "./MenuItems";
 
 const { Sider } = Layout;
+
+const siderStyle = {
+  overflow: "auto",
+  zIndex: 2000,
+  height: "100%",
+  position: "fixed",
+  left: 0,
+  top: 100,
+  bottom: 0,
+};
 
 const SideMenu = () => {
   const [collapsed, setCollapsed] = useState(true);
@@ -23,15 +33,7 @@ const SideMenu = () => {
 
   return (
     <Sider
-      style={{
-        overflow: "auto",
-        zIndex: 2000,
-        height: "100%",
-        position: "fixed",
-        left: 0,
-        top: 100,
-        bottom: 0,
-      }}
+      style={siderStyle}
       collapsible
       collapsed={collapsed}
       onCollapse={() => setCollapsed((state) => !state)}
@@ -40,8 +42,8 @@ const SideMenu = () => {
         theme="dark"
         items={
           user.isTeacher
-            ? itemsTeacher(navigate, onLogutHandler)
-            : itemsStudent(navigate, onLogutHandler)
+            ? createMenuItemsTeacher(navigate, onLogutHandler)
+            : createMenuItemsStudent(navigate, onLogutHandler)
         }
       />
     </Sider>

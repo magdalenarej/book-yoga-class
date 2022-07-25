@@ -4,6 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../../store/userSlice";
 import userPng from "../../assets/logo.png";
 
+const headerStyle = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+};
+
 const MainHeader = () => {
   const user = useSelector((state) => state.user.user);
   const navigate = useNavigate();
@@ -15,14 +22,7 @@ const MainHeader = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
+    <div style={headerStyle}>
       <Image
         src={userPng}
         preview={false}

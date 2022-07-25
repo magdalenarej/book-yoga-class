@@ -5,7 +5,7 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 
-export const itemsTeacher = (navigate, onLogutHandler) => {
+export const createMenuItemsTeacher = (navigate, onLogutHandler) => {
   return [
     {
       key: 1,
@@ -46,7 +46,7 @@ export const itemsTeacher = (navigate, onLogutHandler) => {
   ];
 };
 
-export const itemsStudent = (navigate, onLogutHandler) => {
+export const createMenuItemsStudent = (navigate, onLogutHandler) => {
   return [
     {
       key: 1,

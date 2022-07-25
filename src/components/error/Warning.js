@@ -1,12 +1,14 @@
 import { Alert, Button } from "antd";
 import { useNavigate } from "react-router-dom";
 
+const alertStyles = { maxWidth: 500, margin: "0 auto", marginTop: 32 };
+
 const Warning = () => {
   const navigate = useNavigate();
 
   return (
     <Alert
-      style={{ maxWidth: 500, margin: "0 auto", marginTop: 32 }}
+      style={alertStyles}
       message="You must be logged in!"
       showIcon
       description="Please login or create new account!"
@@ -20,4 +22,4 @@ const Warning = () => {
   );
 };
 
-export default Warning
+export default Warning;

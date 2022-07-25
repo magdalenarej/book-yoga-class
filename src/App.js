@@ -10,21 +10,23 @@ import ClassesCard from "./components/pages/userClasses/ClassesCard";
 
 const { Header, Content } = Layout;
 
+const loyoutStyle = { height: "100vh", overflow: "scroll" };
+const headerStyle = {
+  position: "fixed",
+  zIndex: 2000,
+  width: "100%",
+  height: 100,
+};
+const contentLoyoutStyle = { marginTop: 100, marginLeft: 80 };
+
 const App = () => {
   return (
     <BrowserRouter>
-      <Layout style={{ height: "100vh", overflow: "scroll" }}>
-        <Header
-          style={{
-            position: "fixed",
-            zIndex: 2000,
-            width: "100%",
-            height: 100,
-          }}
-        >
+      <Layout style={loyoutStyle}>
+        <Header style={headerStyle}>
           <MainHeader />
         </Header>
-        <Layout style={{ marginTop: 100, marginLeft: 80 }}>
+        <Layout style={contentLoyoutStyle}>
           <SideMenu />
           <Content>
             <Routes>

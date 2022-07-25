@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { Card } from "antd";
 import Login from "./Login";
 import Register from "./Register";
 import Logged from "./Logged";
+
+const cardStyle = { maxWidth: 600, margin: "0 auto", marginTop: 32 };
 
 const LoginTabCard = () => {
   const [activeTab, setActiveTab] = useState("login");
@@ -23,15 +24,15 @@ const LoginTabCard = () => {
   };
 
   if (user) {
-    return <Logged />
+    return <Logged />;
   }
 
   return (
     <Card
-      style={{ maxWidth: 600, margin: "0 auto", marginTop: 32 }}
+      style={cardStyle}
       tabList={tabList}
       activeTabKey={activeTab}
-      onTabChange={key => onTabChange(key)}
+      onTabChange={(key) => onTabChange(key)}
     >
       {contentList[activeTab]}
     </Card>
