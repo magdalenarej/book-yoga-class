@@ -8,7 +8,6 @@ import { notification, Card, Button, Popconfirm, Typography } from "antd";
 
 const { Title, Text, Paragraph } = Typography;
 
-
 const StudentYogaClass = ({ yogaClass }) => {
   const [
     bookClass,
@@ -41,7 +40,7 @@ const StudentYogaClass = ({ yogaClass }) => {
         placement: "bottomRight",
       });
     }
-  }, [isSuccessBooking, yogaClass]);
+  }, [isSuccessBooking]);
 
   useEffect(() => {
     if (isSuccessCanceling) {

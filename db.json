@@ -16,7 +16,15 @@
     {
       "name": "yoga for beginners",
       "spots": "15",
-      "students": [],
+      "students": [
+        {
+          "email": "jan@kowalski.pl",
+          "name": "Jan",
+          "surname": "Kowalski",
+          "confirm": "1234567",
+          "id": 5
+        }
+      ],
       "date": "13-07-2022",
       "time": "18:00",
       "teacher": {
@@ -29,7 +37,15 @@
     {
       "name": "Yoga for beginners",
       "spots": "8",
-      "students": [],
+      "students": [
+        {
+          "email": "jan@kowalski.pl",
+          "name": "Jan",
+          "surname": "Kowalski",
+          "confirm": "1234567",
+          "id": 5
+        }
+      ],
       "date": "24-07-2022",
       "time": "09:00",
       "teacher": {
@@ -55,15 +71,7 @@
     {
       "name": "Yoga for seniors",
       "spots": "5",
-      "students": [
-        {
-          "email": "jan@kowalski.pl",
-          "name": "Jan",
-          "surname": "Kowalski",
-          "confirm": "1234567",
-          "id": 5
-        }
-      ],
+      "students": [],
       "date": "28-07-2022",
       "time": "08:00",
       "teacher": {
