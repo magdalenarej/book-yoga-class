@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Book yoga class app 📅🧘‍♀️
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An app for booking and adding yoga class created with ReactJS, Redux-toolkit and Ant-design.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+Install book-yoga-class with npm
 
-### `npm start`
+```bash
+  npm install book-yoga-class
+  cd book-yoga-class
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Install json-server
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+  npm install -g json-server
+```
 
-### `npm test`
+Run the server
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+  json-server db.json -m ./node_modules/json-server-auth --port 4000
+```
 
-### `npm run build`
+Run the app in another terminal
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+  npm run start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Client:**
 
-### `npm run eject`
+- [React](https://reactjs.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Ant Design](https://ant.design/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Server:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [json-server](https://github.com/typicode/json-server)
+- [json-server-auth](https://github.com/jeremyben/json-server-auth)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Features
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Login and registration
+- User - student mode:
+  - booking yoga class
+  - cancelling booked class
+  - displays all booked classes
+- User - teacher mode:
+  - adding new class
+  - cancelling class
+  - displays classes and list of students
 
-## Learn More
+## Screenshots
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Login view](img/Login-page.png)
+![Refistration view](img/Registration-page.png)
+![Calendar view](img/Calendar.png)
+![Booking and canclling class by student](img/Book-class-and-cancell.gif)
+![Booked classes by student view](img/Student-classes.png)
+![Student can't book class if there is no free spot](img/Booked-class.png)
+![Add new class view](img/Add-new-class.png)
+![Teacher classes with list of students](img/List-of-students.gif)

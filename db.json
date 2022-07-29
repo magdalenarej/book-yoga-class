@@ -9,22 +9,31 @@
       },
       "name": "yoga yin",
       "spots": 10,
-      "students": [],
+      "students": [
+        {
+          "email": "celinka@ce.pl",
+          "name": "Celina",
+          "surname": "Cebula",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 15
+        },
+        {
+          "email": "piotr@igla.pl",
+          "name": "Piotr",
+          "surname": "Igła",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 9
+        }
+      ],
       "date": "25-07-2022",
       "time": "17:00"
     },
     {
       "name": "Yoga for beginners",
       "spots": "8",
-      "students": [
-        {
-          "email": "jan@kowalski.pl",
-          "name": "Jan",
-          "surname": "Kowalski",
-          "confirm": "1234567",
-          "id": 5
-        }
-      ],
+      "students": [],
       "date": "24-07-2022",
       "time": "09:00",
       "teacher": {
@@ -63,7 +72,16 @@
     {
       "name": "Ashtanga vinyasa - led classes",
       "spots": "15",
-      "students": [],
+      "students": [
+        {
+          "email": "anna@a.pl",
+          "name": "Anna",
+          "surname": "Anioł",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 10
+        }
+      ],
       "date": "22-07-2022",
       "time": "06:00",
       "teacher": {
@@ -76,7 +94,48 @@
     {
       "name": "yoga for beginners",
       "spots": "10",
-      "students": [],
+      "students": [
+        {
+          "email": "ala@kot.pl",
+          "name": "Ala",
+          "surname": "Kot",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 7
+        },
+        {
+          "email": "bartosz@b.pl",
+          "name": "bartosz",
+          "surname": "brat",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 14
+        },
+        {
+          "email": "anna@a.pl",
+          "name": "Anna",
+          "surname": "Anioł",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 10
+        },
+        {
+          "email": "anna@anna.pl",
+          "name": "Anna",
+          "surname": "Anioł",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 11
+        },
+        {
+          "email": "piotr@igla.pl",
+          "name": "Piotr",
+          "surname": "Igła",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 9
+        }
+      ],
       "date": "03-07-2022",
       "time": "18:00",
       "teacher": {
@@ -89,7 +148,24 @@
     {
       "name": "Yoga for beginners",
       "spots": "10",
-      "students": [],
+      "students": [
+        {
+          "email": "celinka@ce.pl",
+          "name": "Celina",
+          "surname": "Cebula",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 15
+        },
+        {
+          "email": "anna@a.pl",
+          "name": "Anna",
+          "surname": "Anioł",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 10
+        }
+      ],
       "date": "10-07-2022",
       "time": "18:00",
       "teacher": {
@@ -115,7 +191,16 @@
     {
       "name": "Yoga Iyengar",
       "spots": "8",
-      "students": [],
+      "students": [
+        {
+          "email": "bartosz@b.pl",
+          "name": "bartosz",
+          "surname": "brat",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 14
+        }
+      ],
       "date": "03-07-2022",
       "time": "20:00",
       "teacher": {
@@ -141,7 +226,16 @@
     {
       "name": "Yoga Iyengar",
       "spots": "8",
-      "students": [],
+      "students": [
+        {
+          "email": "celinka@ce.pl",
+          "name": "Celina",
+          "surname": "Cebula",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 15
+        }
+      ],
       "date": "17-07-2022",
       "time": "20:00",
       "teacher": {
@@ -154,7 +248,40 @@
     {
       "name": "Yoga ashtanga - mysore",
       "spots": "15",
-      "students": [],
+      "students": [
+        {
+          "email": "ala@kot.pl",
+          "name": "Ala",
+          "surname": "Kot",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 7
+        },
+        {
+          "email": "bartosz@b.pl",
+          "name": "bartosz",
+          "surname": "brat",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 14
+        },
+        {
+          "email": "celinka@ce.pl",
+          "name": "Celina",
+          "surname": "Cebula",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 15
+        },
+        {
+          "email": "piotr@igla.pl",
+          "name": "Piotr",
+          "surname": "Igła",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 9
+        }
+      ],
       "date": "06-07-2022",
       "time": "06:00",
       "teacher": {
@@ -163,6 +290,222 @@
         "id": 16
       },
       "id": 22
+    },
+    {
+      "name": "Yoga Iyengar",
+      "spots": "8",
+      "students": [
+        {
+          "email": "anna@a.pl",
+          "name": "Anna",
+          "surname": "Anioł",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 10
+        },
+        {
+          "email": "anna@anna.pl",
+          "name": "Anna",
+          "surname": "Anioł",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 11
+        },
+        {
+          "email": "piotr@igla.pl",
+          "name": "Piotr",
+          "surname": "Igła",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 9
+        }
+      ],
+      "date": "05-07-2022",
+      "time": "16:00",
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
+      "id": 23
+    },
+    {
+      "name": "Yoga flow ",
+      "spots": "15",
+      "students": [
+        {
+          "email": "jan@kowalski.pl",
+          "name": "Jan",
+          "surname": "Kowalski",
+          "confirm": "1234567",
+          "id": 5
+        },
+        {
+          "email": "bartosz@b.pl",
+          "name": "bartosz",
+          "surname": "brat",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 14
+        },
+        {
+          "email": "celinka@ce.pl",
+          "name": "Celina",
+          "surname": "Cebula",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 15
+        },
+        {
+          "email": "anna@a.pl",
+          "name": "Anna",
+          "surname": "Anioł",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 10
+        },
+        {
+          "email": "anna@anna.pl",
+          "name": "Anna",
+          "surname": "Anioł",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 11
+        },
+        {
+          "email": "piotr@igla.pl",
+          "name": "Piotr",
+          "surname": "Igła",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 9
+        }
+      ],
+      "date": "14-07-2022",
+      "time": "19:00",
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
+      "id": 25
+    },
+    {
+      "name": "Ashtanga yoga - mysore ",
+      "spots": "15",
+      "students": [
+        {
+          "email": "jan@kowalski.pl",
+          "name": "Jan",
+          "surname": "Kowalski",
+          "confirm": "1234567",
+          "id": 5
+        },
+        {
+          "email": "ala@kot.pl",
+          "name": "Ala",
+          "surname": "Kot",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 7
+        },
+        {
+          "email": "bartosz@b.pl",
+          "name": "bartosz",
+          "surname": "brat",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 14
+        },
+        {
+          "email": "celinka@ce.pl",
+          "name": "Celina",
+          "surname": "Cebula",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 15
+        },
+        {
+          "email": "anna@a.pl",
+          "name": "Anna",
+          "surname": "Anioł",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 10
+        },
+        {
+          "email": "anna@anna.pl",
+          "name": "Anna",
+          "surname": "Anioł",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 11
+        },
+        {
+          "email": "piotr@igla.pl",
+          "name": "Piotr",
+          "surname": "Igła",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 9
+        }
+      ],
+      "date": "11-07-2022",
+      "time": "06:00",
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
+      "id": 26
+    },
+    {
+      "name": "Ashtanga yoga - mysore ",
+      "spots": "15",
+      "students": [],
+      "date": "03-08-2022",
+      "time": "06:00",
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
+      "id": 27
+    },
+    {
+      "name": "Yoga - individual class",
+      "spots": "1",
+      "students": [],
+      "date": "19-07-2022",
+      "time": "16:00",
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
+      "id": 28
+    },
+    {
+      "name": "Yoga - individual class",
+      "spots": "1",
+      "students": [
+        {
+          "email": "anna@a.pl",
+          "name": "Anna",
+          "surname": "Anioł",
+          "confirm": "1234567",
+          "isTeacher": false,
+          "id": 10
+        }
+      ],
+      "date": "27-07-2022",
+      "time": "20:00",
+      "teacher": {
+        "name": "Alina",
+        "surname": "Nowak",
+        "id": 16
+      },
+      "id": 29
     }
   ],
   "users": [
