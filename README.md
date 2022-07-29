@@ -92,6 +92,7 @@ Run the app in another terminal
 
 ![Teacher classes with list of students](img/List-of-students.gif)
 
-*User must be looged in to see calendar*
+*User must be logged in to see calendar*
 
-![Teacher classes with list of students](img/Warning.png)
+![User must be logged-in](img/User-must-be-logged-in.gif)
+![User must be logged-in](img/Warning.png)
