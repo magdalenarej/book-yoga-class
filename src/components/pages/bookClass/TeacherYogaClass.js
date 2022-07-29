@@ -67,9 +67,9 @@ const TeacherYogaClass = ({ yogaClass }) => {
           <Panel header="students:">
             {yogaClass.students.map((student) => {
               return (
-                <Text key={student.id}>
+                <Paragraph key={student.id}>
                   {student.name} {student.surname}
-                </Text>
+                </Paragraph>
               );
             })}
           </Panel>

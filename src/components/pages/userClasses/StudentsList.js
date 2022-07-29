@@ -1,5 +1,5 @@
 import { Modal, Typography } from "antd";
-const { Text } = Typography;
+const { Paragraph } = Typography;
 
 const StudentsList = ({ students, isVisible, onShowModal }) => {
   return (
@@ -10,9 +10,9 @@ const StudentsList = ({ students, isVisible, onShowModal }) => {
       onCancel={onShowModal}
     >
       {students.map((student) => (
-        <Text key={student.id}>
+        <Paragraph key={student.id}>
           {student.name} {student.surname}
-        </Text>
+        </Paragraph>
       ))}
     </Modal>
   );
