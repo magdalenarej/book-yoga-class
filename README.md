@@ -44,7 +44,7 @@ Run the app in another terminal
 
 ## Features
 
-- Login and registration
+- Login and registration with authentication
 - User - student mode:
   - booking yoga class
   - cancelling booked class
@@ -55,6 +55,7 @@ Run the app in another terminal
   - displays classes and list of students
 
 ## Screenshots
+
 Login
 
 ![Login view](img/Login-page.png)
@@ -63,7 +64,7 @@ Registration
 
 ![Refistration view](img/Registration-page.png)
 
-User login
+User login ➡️ Calendar view ➡️ booking class
 
 ![After login](img/Login-to-calendar.gif)
 
@@ -71,14 +72,15 @@ Calendar with classes
 
 ![Calendar view](img/Calendar.png)
 
-Book and cancell booking 
-![Booking and canclling class by student](img/Book-class-and-cancell.gif)
+Book and cancel booking
 
-Student's classes
+![Booking and canceling class by student](img/Book-class-and-cancell.gif)
+
+Booked classes
 
 ![Booked classes by student view](img/Student-classes.png)
 
-User can't book class if there is no free spot
+User can't book class if there is no free spot (button is disable)
 
 ![Student can't book class if there is no free spot](img/Booked-class.png)
 
