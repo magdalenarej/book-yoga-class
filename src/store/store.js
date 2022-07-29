@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { classApi } from "./api";
 import { userSlice } from "./userSlice";
 
