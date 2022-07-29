@@ -55,12 +55,37 @@ Run the app in another terminal
   - displays classes and list of students
 
 ## Screenshots
+Login
 
 ![Login view](img/Login-page.png)
+
+Registration
+
 ![Refistration view](img/Registration-page.png)
+
+User login
+
+![After login](img/Login-to-calendar.gif)
+
+Calendar with classes
+
 ![Calendar view](img/Calendar.png)
+
+Book and cancell booking 
 ![Booking and canclling class by student](img/Book-class-and-cancell.gif)
+
+Student's classes
+
 ![Booked classes by student view](img/Student-classes.png)
+
+User can't book class if there is no free spot
+
 ![Student can't book class if there is no free spot](img/Booked-class.png)
+
+Add new class by teacher
+
 ![Add new class view](img/Add-new-class.png)
+
+Classes with students list
+
 ![Teacher classes with list of students](img/List-of-students.gif)
