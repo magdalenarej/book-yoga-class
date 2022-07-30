@@ -7,7 +7,8 @@ An app for booking and adding yoga class created with ReactJS, Redux-toolkit and
 Clone the repo and install 
 
 ```bash
-  npm install book-yoga-class
+  cd book-yoga-class
+  npm install
 ```
 
 Install json-server
