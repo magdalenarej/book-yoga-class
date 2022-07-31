@@ -5,6 +5,7 @@ import {
   useCancelBookingClassMutation,
 } from "../../../store/api";
 import { notification, Card, Button, Popconfirm, Typography } from "antd";
+import dayjs from "dayjs";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -21,6 +22,17 @@ const StudentYogaClass = ({ yogaClass }) => {
   const user = useSelector((state) => state.user.user);
 
   const [isBooked, setIsBooked] = useState(false);
+  const [isBeforeToday, setIsBeforeToday] = useState(false);
+
+  useEffect(() => {
+    const dateArr = yogaClass.date.split("-");
+    const yogaDate = new Date(dateArr[2], dateArr[1] - 1, dateArr[0]);
+    const dayjsdate = dayjs(yogaDate);
+    const today = dayjs();
+    if (dayjsdate.isBefore(today, "date")) {
+      setIsBeforeToday(true);
+    }
+  }, [yogaClass]);
 
   useEffect(() => {
     if (!yogaClass.students.length) {
@@ -77,7 +89,9 @@ const StudentYogaClass = ({ yogaClass }) => {
       </Paragraph>
       {!isBooked ? (
         <Button
-          disabled={yogaClass.students.length >= yogaClass.spots}
+          disabled={
+            yogaClass.students.length >= yogaClass.spots || isBeforeToday
+          }
           type="primary"
           loading={isLoadingBooking}
           onClick={(e) => {
